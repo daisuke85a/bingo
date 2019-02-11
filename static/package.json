@@ -6,6 +6,18 @@
   "author": "daisuke85a",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "clean:public": "rimraf testdir",
+    "clean": "rimraf testdir .cache",
+    "dev": "parcel src/view/*.pug --open --out-dir temp",
+    "build": "parcel build src/view/*.pug --no-source-maps --no-cache -d testdir --public-url ./",
+    "prebuild": "yarn clean:public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines.browsers": [
+    "defaults",
+    "not < 1%"
+  ],
   "devDependencies": {
     "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
