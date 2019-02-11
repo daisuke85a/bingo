@@ -11,5 +11,9 @@
     "parcel-bundler": "^1.11.0",
     "pug": "^2.0.3",
     "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "destyle.css": "^1.0.5",
+    "yakuhanjp": "^3.0.0"
   }
 }
