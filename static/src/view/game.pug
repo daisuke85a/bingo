@@ -1,17 +1,19 @@
+-var desc = 'ゲーム画面です'
+
 doctype html
 
 html(lang="ja")
   head
     meta(charset="UTF-8")
-    title This is a Pug template
-    meta(name="description" content="")
+    title Game | BINGO
+    meta(name="description" content=desc)
     meta(name="viewport" content="width=device-width,initial-scale=1")
-    //- link(rel="stylesheet" type="text/css" href="../stylesheet/main.css")
+    link(rel="stylesheet" type="text/css" href="../style/game.sass")
 
-  body.body
+  body.body.game
     //- include include/block/header.pug
     main.main
-      h1 This is a Pug template
+      h1 #{desc}
       img(src="../img/cat01.png", alt="cat01")
     //- include include/block/footer.pug
 
