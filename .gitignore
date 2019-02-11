@@ -1,2 +1,22 @@
 /config.php
 
+# Mac
+.DS_Store
+
+# PARCEL
+dist/
+.cache
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Yarn Integrity file
+.yarn-integrity
