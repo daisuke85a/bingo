@@ -10,7 +10,7 @@
     "clean:public": "rimraf testdir",
     "clean": "rimraf testdir .cache",
     "dev": "parcel src/view/*.pug --open --out-dir temp",
-    "build": "parcel build src/view/*.pug --no-source-maps --no-cache -d testdir --public-url ./",
+    "build": "parcel build src/view/*.pug --no-source-maps --no-cache --no-minify -d testdir --public-url ./",
     "prebuild": "yarn clean:public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
