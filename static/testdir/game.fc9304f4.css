@@ -492,9 +492,29 @@ template {
 [hidden] {
   display: none;
 }
-@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800&subset=japanese");
+@font-face {
+  font-family: "YakuHanRP";
+  font-style: normal;
+  font-weight: 100 400;
+  src: url("YakuHanRP-Regular.37a748ee.eot");
+  src: url("YakuHanRP-Regular.797eeb0f.woff2") format("woff2"), url("YakuHanRP-Regular.792d1a99.woff") format("woff");
+}
+@font-face {
+  font-family: "YakuHanRP";
+  font-style: normal;
+  font-weight: 500 700;
+  src: url("YakuHanRP-Bold.58130e3c.eot");
+  src: url("YakuHanRP-Bold.2593c55d.woff2") format("woff2"), url("YakuHanRP-Bold.9728b4c0.woff") format("woff");
+}
+@font-face {
+  font-family: "YakuHanRP";
+  font-style: normal;
+  font-weight: 800 900;
+  src: url("YakuHanRP-ExtraBold.34a149f5.eot");
+  src: url("YakuHanRP-ExtraBold.d5b9a304.woff2") format("woff2"), url("YakuHanRP-ExtraBold.5da7c94f.woff") format("woff");
+}
 html {
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: YakuHanRP, "M PLUS Rounded 1c", sans-serif;
   font-size: 10px;
 }
 
