@@ -4,16 +4,66 @@
 
 %_flex
   display: flex
-  align-items: flex-start
+  align-items: center
   justify-content: center
   flex-wrap: wrap
   margin-left: auto
   margin-right: auto
 
+%_deco
+  position: relative
+  box-shadow: -0.6rem 0.6rem 1rem rgba(#000, .05)
+  &:before
+    content: ''
+    position: absolute
+    display: block
+    box-sizing: content-box
+    width: 0
+    height: 0
+    right: 0
+    top: 0
+    border-width: 1rem
+    border-style: solid
+    border-top-color: $colorMain
+    border-right-color: $colorMain
+    border-bottom-color: $colorReverse
+    border-left-color: $colorReverse
+
 .history
   @extend %_flex
   width: 100%
   margin-top: $margin
+
+.history__newone
+  @extend %_flex
+  width: 100%
+  margin-top: $marginHalf
+  padding: $marginHalf $marginHalf ($marginHalf / 4)
+  > p
+    @extend %_deco
+    @extend %_flex
+    width: 25rem
+    height: 20rem
+    text-align: center
+    background-color: #FFF
+    span
+      &:first-of-type
+        flex: 1 0 100%
+        display: block
+        white-space: nowrap
+        word-break: keep-all
+        font-size: 2.8rem
+        letter-spacing: .2em
+        padding-left: 0.2em
+        margin-top: auto
+        color: $colorAccent
+      &:not(:first-of-type)
+        flex: 1 0 100%
+        display: block
+        line-height: 10rem
+        font-weight: 800
+        font-size: 10rem
+        margin-bottom: auto
 
 .history__list
   @extend %_flex
@@ -21,7 +71,7 @@
   margin-top: $marginHalf
 
   > li
-    position: relative
+    @extend %_deco
     display: block
     width: 12.2rem
     height: 10rem
@@ -31,19 +81,3 @@
     font-weight: 800
     font-size: 4.5rem
     background-color: #FFF
-    box-shadow: -0.6rem 0.6rem 1rem rgba(#000, .05)
-    &:before
-      content: ''
-      position: absolute
-      display: block
-      box-sizing: content-box
-      width: 0
-      height: 0
-      right: 0
-      top: 0
-      border-width: 1rem
-      border-style: solid
-      border-top-color: $colorMain
-      border-right-color: $colorMain
-      border-bottom-color: $colorReverse
-      border-left-color: $colorReverse
