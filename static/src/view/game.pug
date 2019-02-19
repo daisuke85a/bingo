@@ -3,7 +3,9 @@
       {
         title: 'みんニャでかんたんBINGO',
         desc: 'ゲーム画面です',
-        doSlot: 'スロットをまわす'
+        doSlot: 'スロットまわす',
+        doShout: 'ビンゴさけぶ',
+        doExit: 'やめる'
       }
 
 doctype html
@@ -33,7 +35,9 @@ html(lang="ja")
   body.body.game
     main.main
       h1.headline: img(src="../img/logo.png", alt=text.title)
-      button.button= text.doSlot
+      button.buttonPrimary= text.doSlot
+      button.buttonSecondary= text.doShout
+      button.buttonPrimary= text.doExit
       //- p.note #{text.desc}
       //- img(src="../img/cat01.png", alt="cat01")
     //- include include/block/footer.pug
