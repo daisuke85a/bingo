@@ -1,0 +1,27 @@
+// ==========================
+// Body.sass
+// ==========================
+
+%_bgImage
+  content: ''
+  width: 13.9rem
+  height: 100%
+  position: absolute
+  z-index: 3
+  top: 0
+  background: repeat-y 0 2rem url('../img/side.png')
+
+$_gap: -3.5rem
+
+.body
+  position: relative
+  min-height: 100vh
+  background: $colorMain
+  z-index: 1
+  &:before
+    @extend %_bgImage
+    left: $_gap
+  &:after
+    @extend %_bgImage
+    right: $_gap
+    transform: rotateY(180deg)
