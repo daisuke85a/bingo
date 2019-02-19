@@ -1,20 +1,24 @@
--var title = 'みんニャでかんたんBINGO'
--var desc = 'ゲーム画面です'
+-
+  var text =
+      {
+        title: 'みんニャでかんたんBINGO',
+        desc: 'ゲーム画面です'
+      }
 
 doctype html
 
 html(lang="ja")
   head
     meta(charset="UTF-8")
-    title #{desc} | #{title}
+    title #{text.desc} | #{text.title}
     meta(name="description" content=desc)
     meta(name="viewport" content="width=device-width,initial-scale=1")
     link(rel="stylesheet" type="text/css" href="../style/game.sass")
 
   body.body.game
     main.main
-      h1.headline: img(src="../img/logo.png", alt=title)
-      p.note #{desc}
+      h1.headline: img(src="../img/logo.png", alt=text.title)
+      p.note #{text.desc}
       img(src="../img/cat01.png", alt="cat01")
     //- include include/block/footer.pug
 
