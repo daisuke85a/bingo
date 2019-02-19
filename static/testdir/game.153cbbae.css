@@ -492,33 +492,80 @@ template {
 [hidden] {
   display: none;
 }
-@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700");
-@font-face {
-  font-family: "YakuHanRP";
-  font-style: normal;
-  font-weight: 100 400;
-  src: url("YakuHanRP-Regular.37a748ee.eot");
-  src: url("YakuHanRP-Regular.797eeb0f.woff2") format("woff2"), url("YakuHanRP-Regular.792d1a99.woff") format("woff");
-}
-@font-face {
-  font-family: "YakuHanRP";
-  font-style: normal;
-  font-weight: 500 900;
-  src: url("YakuHanRP-Bold.58130e3c.eot");
-  src: url("YakuHanRP-Bold.2593c55d.woff2") format("woff2"), url("YakuHanRP-Bold.9728b4c0.woff") format("woff");
-}
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800&subset=japanese");
 html {
-  font-family: YakuHanRP, "Rounded Mplus 1c", sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 10px;
 }
 
-.game {
-  background: #F8F7F0;
+.body:after, .body:before {
+  content: "";
+  width: 13.9rem;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  background: repeat-y 0 2rem url("side.becded9f.png");
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: bold;
+.body {
+  position: relative;
+  min-height: 100vh;
+  background: #F8F7F0;
+  z-index: 1;
+}
+.body:before {
+  left: -3.5rem;
+}
+.body:after {
+  right: -3.5rem;
+  transform: rotateY(180deg);
+}
+
+.button {
+  width: 60rem;
+  height: 10rem;
+  background-color: #EEE;
+  display: inline-block;
+  border: 0.3rem solid #000;
+  box-sizing: border-box;
+  font-size: 40px;
+  font-weight: 800;
+  border-radius: 60rem;
+}
+
+.headline:after, .headline:before {
+  content: "";
+  width: 32.7rem;
+  height: 11.4rem;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  background: no-repeat center url("flag.0aeb2920.png");
+}
+
+.headline {
+  position: relative;
+  padding-top: 4rem;
+  text-align: center;
+  z-index: 1;
+}
+.headline:before {
+  left: 0;
+}
+.headline:after {
+  right: 0;
+  transform: rotateY(180deg);
+}
+.headline img {
+  display: inline-block;
+  width: 120rem;
+  height: 12.8rem;
+  z-index: 3;
+}
+
+.history {
+  width: 100%;
 }
 
 .note {

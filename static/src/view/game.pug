@@ -2,7 +2,8 @@
   var text =
       {
         title: 'みんニャでかんたんBINGO',
-        desc: 'ゲーム画面です'
+        desc: 'ゲーム画面です',
+        doSlot: 'スロットをまわす'
       }
 
 doctype html
@@ -18,8 +19,9 @@ html(lang="ja")
   body.body.game
     main.main
       h1.headline: img(src="../img/logo.png", alt=text.title)
-      p.note #{text.desc}
-      img(src="../img/cat01.png", alt="cat01")
+      button.button= text.doSlot
+      //- p.note #{text.desc}
+      //- img(src="../img/cat01.png", alt="cat01")
     //- include include/block/footer.pug
 
   //- script(src="../javascript/main.js")

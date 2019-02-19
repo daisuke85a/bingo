@@ -3,28 +3,36 @@
 // ==========================
 
 @import '../../node_modules/destyle.css/destyle.css'
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700')
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800&subset=japanese')
 // @import '../../node_modules/yakuhanjp/dist/css/yakuhanrp.min.css'
 
 // font-faceの独自定義
 $_path: "../../node_modules/yakuhanjp/dist/fonts/YakuHanRP/"
 
-@font-face
-  font-family: "YakuHanRP"
-  font-style: normal
-  font-weight: 100 400
-  src: url("#{$_path}YakuHanRP-Regular.eot")
-  src: url("#{$_path}YakuHanRP-Regular.woff2") format("woff2"), url("#{$_path}YakuHanRP-Regular.woff") format("woff")
+// @font-face
+//   font-family: "YakuHanRP"
+//   font-style: normal
+//   font-weight: 100 400
+//   src: url("#{$_path}YakuHanRP-Regular.eot")
+//   src: url("#{$_path}YakuHanRP-Regular.woff2") format("woff2"), url("#{$_path}YakuHanRP-Regular.woff") format("woff")
 
-@font-face
-  font-family: "YakuHanRP"
-  font-style: normal
-  font-weight: 500 900
-  src: url("#{$_path}YakuHanRP-Bold.eot")
-  src: url("#{$_path}YakuHanRP-Bold.woff2") format("woff2"), url("#{$_path}YakuHanRP-Bold.woff") format("woff")
+// @font-face
+//   font-family: "YakuHanRP"
+//   font-style: normal
+//   font-weight: 500 700
+//   src: url("#{$_path}YakuHanRP-Bold.eot")
+//   src: url("#{$_path}YakuHanRP-Bold.woff2") format("woff2"), url("#{$_path}YakuHanRP-Bold.woff") format("woff")
+
+// @font-face
+//   font-family: "YakuHanRP"
+//   font-style: normal
+//   font-weight: 800 900
+//   src: url("#{$_path}YakuHanRP-ExtraBold.eot")
+//   src: url("#{$_path}YakuHanRP-ExtraBold.woff2") format("woff2"), url("#{$_path}YakuHanRP-ExtraBold.woff") format("woff")
 
 html
-  font-family: YakuHanRP, "Rounded Mplus 1c", sans-serif
+  // font-family: YakuHanRP, 'M PLUS Rounded 1c', 'sans-serif'
+  font-family: 'M PLUS Rounded 1c', sans-serif
   font-size: 10px
 
 // global variables
