@@ -5,7 +5,8 @@
         desc: 'ゲーム画面です',
         doSlot: 'スロットまわす',
         doShout: 'ビンゴさけぶ',
-        doExit: 'やめる'
+        doExit: 'やめる',
+        copy: '&copy; team BINGO !!'
       }
 
 doctype html
@@ -33,7 +34,7 @@ html(lang="ja")
     )
 
   body.body.game
-    main.main
+    main#main.main
       h1.headline: img(src="../img/logo.png", alt=text.title)
 
       section.history
@@ -86,10 +87,20 @@ html(lang="ja")
                   each val in [1, 88, 3, 7, 5]
                     li= val
 
-      section.footer
-        button.buttonPrimary= text.doExit
-      //- p.note #{text.desc}
-      //- img(src="../img/cat01.png", alt="cat01")
+    footer.footer
+      button.buttonPrimary= text.doExit
+      .footer__deco
+        button.footer__tree01
+        button.footer__house01
+        button.footer__house02
+        button.footer__house03
+        button.footer__house04
+        button.footer__house05
+        button.footer__house06
+        button.footer__tree02
+        a.footer__alpaca(href="#main")
+      p.footer__copy!= text.copy
+
     //- include include/block/footer.pug
 
   //- script(src="../javascript/main.js")
