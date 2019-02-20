@@ -1,0 +1,67 @@
+// ==========================
+// Member.sass
+// ==========================
+
+%_flex
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-wrap: wrap
+
+%_decoSelected
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    display: block
+    box-sizing: content-box
+    width: 0
+    height: 0
+    right: 0
+    top: 0
+    border-width: 1rem
+    border-style: solid
+    border-top-color: #FFF
+    border-right-color: #FFF
+    border-bottom-color: $colorSub-reverse
+    border-left-color: $colorSub-reverse
+
+.member
+  @extend %_flex
+  margin: $margin auto 0
+  position: relative
+  z-index: 4
+
+.member__item
+  position: relative
+  flex: 0 1 81.2rem
+  margin: (4.2rem / 2) (1.6rem / 2)
+  background-color: #FFF
+  box-shadow: -0.6rem 0.6rem 1rem rgba(#000, .05)
+  z-index: 1
+
+  h3
+    padding: 1.2rem
+    text-align: center
+    background-color: $colorSub
+    font-size: 3rem
+    color: #FFF
+
+  ul
+    @extend %_flex
+    flex-wrap: nowrap
+    padding: 2rem
+
+  $_gap: 2.5rem
+  li
+    @extend %_decoSelected
+    display: block
+    width: 12.5rem
+    height: 10rem
+    line-height: 10rem
+    text-align: center
+    font-weight: 800
+    font-size: 4.5rem
+    background-color: $colorSub-light
+    &:not(:first-of-type)
+      margin-left: $_gap

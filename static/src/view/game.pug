@@ -58,7 +58,15 @@ html(lang="ja")
          | ニャ
         button.buttonSecondary= text.doShout
 
-      section
+      section.member
+        each name in [17, 16, 18, 19, 8]
+          .member__item
+            h3 参加者 #{name}
+            ul
+              each val in [1, 88, 3, 7, 5]
+                li= val
+
+      section.footer
         button.buttonPrimary= text.doExit
       //- p.note #{text.desc}
       //- img(src="../img/cat01.png", alt="cat01")
