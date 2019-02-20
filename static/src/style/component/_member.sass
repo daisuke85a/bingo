@@ -8,7 +8,18 @@
   justify-content: center
   flex-wrap: wrap
 
+%_dogEarAni
+  cursor: pointer
+  user-select: none
+  &:before
+    transition: border-width $ease-out-back .5s
+  &:hover
+    &:before
+      transition: border-width $ease-in-out-back .3s
+      border-width: 2.5rem
+
 %_decoSelected
+  @extend %_dogEarAni
   position: relative
   &:before
     content: ''

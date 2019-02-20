@@ -89,7 +89,6 @@ $_grass: repeat-x center top url('../img/footer.png')
   flex: 0 1 7.1rem
   height: 10rem
   z-index: 1
-  // background-color: #666
   &:before
     content: ''
     display: block
@@ -123,3 +122,7 @@ $_grass: repeat-x center top url('../img/footer.png')
   height: 27.1rem
   z-index: 4
   background: no-repeat center url('../img/cat02.png')
+  transition: transform $ease-in-out-back .5s
+  &:hover
+    transform: scale(1.05) translate(0, -10%)
+
