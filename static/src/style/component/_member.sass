@@ -26,6 +26,21 @@
     border-bottom-color: $colorSub-reverse
     border-left-color: $colorSub-reverse
 
+$_ribon: no-repeat 0 url('../img/ribon.png')
+%_ribon
+  &:before
+    position: absolute
+    left: 2rem
+    top: -1.2rem
+    width: 6.3rem
+    height: 7.5rem
+    padding-right: 0.3rem
+    background: $_ribon
+    line-height: 6rem
+    text-align: center
+    font-size: 3rem
+    font-weight: 900
+
 .member
   @extend %_flex
   margin: $margin auto 0
@@ -38,7 +53,6 @@
   margin: (4.2rem / 2) (1.6rem / 2)
   background-color: #FFF
   box-shadow: -0.6rem 0.6rem 1rem rgba(#000, .05)
-  z-index: 1
 
   h3
     padding: 1.2rem
@@ -65,3 +79,44 @@
     background-color: $colorSub-light
     &:not(:first-of-type)
       margin-left: $_gap
+
+  &.is-1st
+    @extend %_ribon
+    &:before
+      content: '1'
+  &.is-2nd
+    @extend %_ribon
+    &:before
+      content: '2'
+  &.is-3rd
+    @extend %_ribon
+    &:before
+      content: '3'
+  &.is-4th
+    @extend %_ribon
+    &:before
+      content: '4'
+  &.is-5th
+    @extend %_ribon
+    &:before
+      content: '5'
+  &.is-6th
+    @extend %_ribon
+    &:before
+      content: '6'
+  &.is-7th
+    @extend %_ribon
+    &:before
+      content: '7'
+  &.is-8th
+    @extend %_ribon
+    &:before
+      content: '8'
+  &.is-9th
+    @extend %_ribon
+    &:before
+      content: '9'
+  &.is-10th
+    @extend %_ribon
+    &:before
+      content: '10'

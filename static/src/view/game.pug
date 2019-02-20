@@ -59,12 +59,32 @@ html(lang="ja")
         button.buttonSecondary= text.doShout
 
       section.member
-        each name in [17, 16, 18, 19, 8]
-          .member__item
-            h3 参加者 #{name}
-            ul
-              each val in [1, 88, 3, 7, 5]
-                li= val
+        each name in [17, 16, 18, 19, 8, 1, 44]
+          case name
+            when 16
+              .member__item.is-1st
+                h3 参加者 #{name}
+                ul
+                  each val in [1, 88, 3, 7, 5]
+                    li= val
+            when 18
+              .member__item.is-2nd
+                h3 参加者 #{name}
+                ul
+                  each val in [1, 88, 3, 7, 5]
+                    li= val
+            when 1
+              .member__item.is-10th
+                h3 参加者 #{name}
+                ul
+                  each val in [1, 88, 3, 7, 5]
+                    li= val
+            default
+              .member__item
+                h3 参加者 #{name}
+                ul
+                  each val in [1, 88, 3, 7, 5]
+                    li= val
 
       section.footer
         button.buttonPrimary= text.doExit
