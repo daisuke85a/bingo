@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clean:public": "rimraf testdir",
-    "clean": "rimraf testdir .cache",
+    "clean:public": "rimraf dist/game",
+    "clean": "rimraf testdir .cache dist/game",
     "dev": "parcel src/view/*.pug --open --out-dir temp",
-    "build": "parcel build src/view/*.pug --no-source-maps --no-cache -d testdir --public-url ./",
+    "build": "parcel build src/view/*.pug --no-source-maps --no-cache --no-minify -d dist/game --public-url ./",
     "prebuild": "yarn clean:public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,10 +19,10 @@
     "not < 1%"
   ],
   "devDependencies": {
-    "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
     "pug": "^2.0.3",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "sass": "^1.17.0"
   },
   "dependencies": {
     "destyle.css": "^1.0.5",

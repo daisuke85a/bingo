@@ -1,0 +1,26 @@
+%_flag
+  content: ''
+  width: 32.7rem
+  height: 11.4rem
+  position: absolute
+  z-index: 2
+  top: 0
+  background: no-repeat center url('../img/flag.png')
+
+.headline
+  position: relative
+  padding-top: 4rem
+  text-align: center
+  z-index: 1
+  &:before
+    @extend %_flag
+    left: 0
+  &:after
+    @extend %_flag
+    right: 0
+    transform: rotateY(180deg)
+  img
+    display: inline-block
+    width: 120rem
+    height: 12.8rem
+    z-index: 3
