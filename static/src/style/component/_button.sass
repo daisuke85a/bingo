@@ -1,0 +1,67 @@
+// ==========================
+// button.sass
+// ==========================
+
+$_width: 60rem
+$_height: 10rem
+$_bdSize: .5rem
+$_fontSize: 4rem
+
+%_pseudo
+  content: ''
+  display: block
+  position: absolute
+  top: 0
+  bottom: 0
+  margin: auto
+
+%_button
+  width: $_width
+  height: $_height
+  display: inline-block
+  border: $_bdSize solid $colorBlack
+  font-size: $_fontSize
+  font-weight: 800
+  border-radius: $_width
+  position: relative
+  letter-spacing: .1em
+
+.buttonPrimary
+  @extend %_button
+  background-color: $colorAction
+
+  &:before
+    @extend %_pseudo
+    left: 3rem
+    width: 5rem
+    height: 5rem
+    background: no-repeat center url('../img/icon-stamp.png')
+
+  &:after
+    @extend %_pseudo
+    right: 3rem
+    width: 2.2rem
+    height: 2.2rem
+    transform: rotate(45deg)
+    border-top: .6rem solid $colorBlack
+    border-right: .6rem solid $colorBlack
+
+.buttonSecondary
+  @extend %_button
+  background-color: $colorSubAction
+
+  &:before
+    @extend %_pseudo
+    left: 3rem
+    width: 5rem
+    height: 5rem
+    background: no-repeat center url('../img/icon-voice.png')
+
+  &:after
+    @extend %_pseudo
+    right: 3rem
+    width: 2.2rem
+    height: 2.2rem
+    transform: rotate(45deg)
+    border-top: .6rem solid $colorBlack
+    border-right: .6rem solid $colorBlack
