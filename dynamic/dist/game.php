@@ -117,76 +117,34 @@ foreach ($numbers as $number) {
 		<button class="buttonSecondary" id="btn">ビンゴさけぶ</button>
       </section>
       <section class="member">
-        <div class="member__item">
-          <h3>参加者 17</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item is-1st">
-          <h3>参加者 16</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item is-2nd">
-          <h3>参加者 18</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 19</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 8</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item is-10th">
-          <h3>参加者 1</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 44</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
+	  <?php
+foreach ($users as $user) {
+
+	$rank = $bingoApp->getRank($user["name"]);
+
+	echo '<div class="member__item ';
+	
+    if ($rank === 0) {
+        echo "";
+    } else if($rank === '1'){
+        echo "is-1st";
+    } else if($rank === '2'){
+		echo "is-2nd";
+	} else if($rank === '3'){
+		echo "is-3rd";
+	} else {
+		echo "is-" . $rank . "-th";
+	}
+	echo ' ">';
+
+	echo '<h3>' . $user["name"] . '</h3>';
+
+	//var_dump($number);
+    echo '<ul><li>' . $user["num1"] . '</li><li>' . $user["num2"] . '</li><li>' . $user["num3"] . '</li><li>' . $user["num4"] . '</li><li>' . $user["num5"] . "</ul>";
+	echo '</div>';
+}
+?>
+
       </section>
     </main>
     <footer class="footer">
@@ -213,49 +171,6 @@ foreach ($numbers as $number) {
 }
 
 ?>
-
-  <h2>今までに出た数字</h2>
-  <?php
-foreach ($numbers as $number) {
-    //var_dump($number);
-    echo $number["number"];
-    echo " ";
-}
-?>
-  <form action="index.php" method="get">
-    <p>
-     <input type=“text” name =comment style="display:none" value="start">
-     <input type="submit" value="ビンゴを回す">
-    </p>
-  </form>
-
-  <form action="index.php" method="get">
-    <p>
-     <input type=“text” name =reset style="display:none" value="reset">
-     <input type="submit" value="ビンゴをリセットする">
-    </p>
-  </form>
-
-  <h2>ビンゴカード</h2>
-
-  <h3>ビンゴカードリスト</h3>
-  <?php
-echo "<table>";
-echo "<tr><th>名前</th><th>番号1</th><th>番号2</th><th>番号3</th><th>番号4</th><th>番号5</th><th>順位</th></tr>";
-foreach ($users as $user) {
-    //var_dump($number);
-    echo "<tr><td>" . $user["name"] . "</td><td>" . $user["num1"] . "</td><td>" . $user["num2"] . "</td><td>" . $user["num3"] . "</td><td>" . $user["num4"] . "</td><td>" . $user["num5"] . "</td>";
-
-    $rank = $bingoApp->getRank($user["name"]);
-    if ($rank === 0) {
-        echo "<td></td></tr>";
-    } else {
-        echo "<td>" . $rank . "</td></tr>";
-    }
-}
-echo "</table>";
-?>
-
 
   <script>
 const speech = new webkitSpeechRecognition();
