@@ -85,9 +85,22 @@ if (isset($_GET['comment'])) {
     <main class="main" id="main">
       <h1 class="headline"><img src="./game/logo.814d17e3.png" alt="みんニャでかんたんBINGO"></h1>
       <section class="history">
-        <button class="buttonPrimary">スロットまわす</button>
+
+	  <form action="game.php" method="get">
+    <p>
+	 <input type=“text” name =comment style="display:none" value="start">
+	 <!-- TODO:beforeとafterのマークがつかない。 -->
+     <input type="submit" class="buttonPrimary" value="スロットを回す">
+    </p>
+  </form>
+        <!-- <button class="buttonPrimary">スロットまわす</button> -->
         <div class="history__newone">
-          <p><span>\NEW/</span><span>99</span></p>
+		  <p><span>\NEW/</span><span>
+		  <?php if (isset($bingo)) {
+  			  echo $bingo;
+			}
+		  ?>
+		  </span></p>
         </div>
         <ul class="history__list">
 		<?php
