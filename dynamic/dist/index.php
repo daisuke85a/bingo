@@ -332,7 +332,7 @@ foreach ($users as $user) {
 	</section>
 </div>
 <!-- END /  ========== -->
-<a href="game.html"><input class="btn-base btn-blue" type="submit" value="はじめる"></a>
+<a href="game.php"><input class="btn-base btn-blue" type="submit" value="はじめる"></a>
 
 <footer>
 	<p>team bingo</p>
