@@ -13,6 +13,7 @@ class Bingo
             $this->_db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo $e->getMessage();
+            error_log("failed __construct");
             exit;
         }
     }
@@ -42,6 +43,7 @@ class Bingo
         } else {
             //重複あり
             echo "ユーザー登録失敗! 番号が重複しています";
+            error_log("failed addUser number chouhuku");
             return;
         }
 
@@ -51,6 +53,7 @@ class Bingo
         foreach ($users as $user) {
             if ($user["name"] === $name) {
                 echo "ユーザー登録失敗! 同じ名前の人が居ます";
+                error_log("failed addUser same name");
                 return;
             }
         }
@@ -97,6 +100,7 @@ class Bingo
             $stmt->execute();
         } catch (\PDOException $e) {
             echo $e->getMessage();
+            error_log("failed insert Num");
         }
     }
 

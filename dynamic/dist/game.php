@@ -74,6 +74,7 @@ if (isset($_GET['comment'])) {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800">
     <link rel="stylesheet" type="text/css" href="./game/game.78a35d31.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body class="body game">
     <main class="main" id="main">
@@ -84,19 +85,19 @@ if (isset($_GET['comment'])) {
     <p>
 	 <input type=“text” name =comment style="display:none" value="start">
 	 <!-- TODO:beforeとafterのマークがつかない。 -->
-     <input type="submit" class="buttonPrimary" value="スロットを回す">
+     <input type="submit" class="buttonPrimary" id="go_slot" value="スロットを回す">
     </p>
   </form>
         <!-- <button class="buttonPrimary">スロットまわす</button> -->
         <div class="history__newone">
-		  <p><span>\NEW/</span><span>
+		  <p><span>\NEW/</span><span id = "newnum">
 		  <?php if (isset($bingo)) {
   			  echo $bingo;
 			}
 		  ?>
 		  </span></p>
         </div>
-        <ul class="history__list">
+        <ul class="history__list" id="history__list">
 		<?php
 foreach ($numbers as $number) {
     //var_dump($number);
@@ -223,5 +224,6 @@ function execPost(action, data) {
 
 </script>
 
+<script src="ajax.js"></script>
 </body>
 </html>
