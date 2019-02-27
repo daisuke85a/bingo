@@ -10,12 +10,6 @@ $bingoApp = new \MyApp\Bingo();
 
 $bingoApp->getMaxRank();
 
-if (isset($_COOKIE['name'])) {
-    echo "<p>私の名前は" . $_COOKIE['name'] . "です</p>";
-} else {
-    echo "<p>ビンゴカードが未登録です</p>";
-}
-
 //音声入力された。
 if (isset($_GET['bingo'])) {
     echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
