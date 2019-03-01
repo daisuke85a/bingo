@@ -174,7 +174,8 @@ speech.addEventListener('result', function(e){
         url: "./_ajax.php", 
         type: "GET",
         data: {
-          kind: "voice_bingo"
+          kind: "voice_bingo",
+          voice: text
         }
       })
         // Ajaxリクエストが成功した時発動

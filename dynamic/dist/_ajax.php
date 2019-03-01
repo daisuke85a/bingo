@@ -12,7 +12,7 @@ if($contents === 'goslot'){
     echo (string)$bingo;
 }
 else if($contents === 'voice_bingo'){
-    echo "voice_bingo_string";
+    echo "voice_bingo_string=" .  $_GET['voice'];
 }
 
 
