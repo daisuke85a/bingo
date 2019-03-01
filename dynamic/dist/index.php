@@ -92,6 +92,7 @@ if (isset($_GET['comment'])) {
 	<!-- typekit-->
 	<script src="https://use.typekit.net/fbr3jfe.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 </head>
 <body id="top">
 <!-- START / header ========== -->
@@ -304,7 +305,7 @@ if (isset($_GET['comment'])) {
 							<option value="30">30</option>
 						</select>
 					</li>
-					<li><input type="submit" value="登録"></li>
+					<li><input type="submit" id="add_user" value="登録"></li>
 				</ul>
 				</form>
 			</div>
@@ -456,5 +457,6 @@ function execPost(action, data) {
 }
 
 </script>
+<script src="ajax_index.js"></script>
 
 </body>

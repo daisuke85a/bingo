@@ -32,6 +32,8 @@ else if($contents === 'voice_bingo'){
     echo json_encode($array);
 
 }
-
+else if($contents === 'add_user'){
+    echo "add_user_res_form_ajax";
+}
 
 ?>

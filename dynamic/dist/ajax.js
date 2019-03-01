@@ -1,5 +1,6 @@
 $(function() {
     console.log("hello");
+
     $("#go_slot").on("click", function(e) {
       event.preventDefault(); //submitが実行されると、画面が必ず更新されるというブラウザの仕様をキャンセルする
       console.log("go_slot");
@@ -33,4 +34,10 @@ $(function() {
       return false;
     });
   });
-  
+
+
+  $("#add_user").on("click", function(e) {
+    event.preventDefault(); //submitが実行されると、画面が必ず更新されるというブラウザの仕様をキャンセルする
+    console.log("add_user");
+    return false;
+  });
