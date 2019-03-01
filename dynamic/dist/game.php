@@ -109,7 +109,7 @@ foreach ($users as $user) {
 	} else {
 		echo "is-" . $rank . "-th";
 	}
-	echo ' ">';
+	echo ' " id="'. $user["name"] .'">';
 
 	echo '<h3>' . $user["name"] . '</h3>';
 
@@ -184,6 +184,7 @@ speech.addEventListener('result', function(e){
           console.log(data);
 
           
+
           
         })
         // Ajaxリクエストが失敗した時発動
