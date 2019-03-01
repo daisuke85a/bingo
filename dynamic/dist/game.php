@@ -187,6 +187,11 @@ speech.addEventListener('result', function(e){
           console.log(data.name);
           console.log(data.rank);
 
+          //TODO:仮に2番にしてみる
+          var card = document.getElementById(data.name);
+          console.log(card);
+          var rank = 'is-2nd';
+          card.classList.add('is-2nd');
           
         })
         // Ajaxリクエストが失敗した時発動
