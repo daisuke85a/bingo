@@ -14,7 +14,26 @@ document.getElementById('add_user').onclick = function(){
     }
   };
 
-  xhr.open('GET', '_ajax.php?kind=add_user' ,true);
+  var user = document.getElementById('user');
+  var num1 = document.getElementById('num1');
+  var num2 = document.getElementById('num2');
+  var num3 = document.getElementById('num3');
+  var num4 = document.getElementById('num4');
+  var num5 = document.getElementById('num5');
+  console.log(user.value);
+  console.log(num1.value);
+  console.log(num2.value);
+  console.log(num3.value);
+  console.log(num4.value);
+  console.log(num5.value);
+
+  var str = '_ajax.php?kind=add_user&user=' + user.value +'&num1=' + num1.value + '&num2=' + num2.value 
+  + '&num3=' + num3.value +'&num4=' + num4.value + '&num5=' + num5.value;
+
+  console.log(str);
+
+  xhr.open('GET', '_ajax.php?kind=add_user&user=' + user.value +'&num1=' + num1.value + '&num2=' + num2.value 
+    + '&num3=' + num3.value +'&num4=' + num4.value + '&num5=' + num5.value , true);
   xhr.send(null);
 
 

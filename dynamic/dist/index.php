@@ -123,11 +123,11 @@ if (isset($_GET['comment'])) {
 				<ul>
 					<li>
 						<span>お名前</span>
-						<input type="text" name=user placeholder="お名前を入れてニャ">
+						<input type="text" name=user id="user" placeholder="お名前を入れてニャ">
 					</li>
 					<li>
 						<span>番号1</span>
-						<select name="num1">
+						<select name="num1" id="num1">
 							<option value="">未設定</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -163,7 +163,7 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号2</span>
-						<select name="num2">
+						<select name="num2" id="num2">
 							<option value="">未設定</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -199,7 +199,7 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号3</span>
-						<select name="num3">
+						<select name="num3" id="num3">
 							<option value="">未設定</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -235,7 +235,7 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号4</span>
-						<select name="num4">
+						<select name="num4" id="num4">
 							<option value="">未設定</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -271,7 +271,7 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号5</span>
-						<select name="num5">
+						<select name="num5" id="num5">
 							<option value="">未設定</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
