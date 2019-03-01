@@ -32,8 +32,7 @@ document.getElementById('add_user').onclick = function(){
 
   console.log(str);
 
-  xhr.open('GET', '_ajax.php?kind=add_user&user=' + user.value +'&num1=' + num1.value + '&num2=' + num2.value 
-    + '&num3=' + num3.value +'&num4=' + num4.value + '&num5=' + num5.value , true);
+  xhr.open('GET', str , true);
   xhr.send(null);
 
 
