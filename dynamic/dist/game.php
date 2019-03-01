@@ -172,6 +172,7 @@ speech.addEventListener('result', function(e){
       
       $.ajax({
         url: "./_ajax.php", 
+        dataType: 'json',
         type: "GET",
         data: {
           kind: "voice_bingo",
@@ -183,7 +184,8 @@ speech.addEventListener('result', function(e){
           console.log("ajax done");
           console.log(data);
 
-          
+          console.log(data.name);
+          console.log(data.rank);
 
           
         })
