@@ -9,8 +9,11 @@ $bingoApp = new \MyApp\Bingo();
 
 if($contents === 'goslot'){
     $bingo = $bingoApp->slot(0, 30);
+    echo (string)$bingo;
+}
+else if($contents === 'voice_bingo'){
+    echo "voice_bingo_string";
 }
 
-echo (string)$bingo;
 
 ?>

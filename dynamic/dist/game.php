@@ -168,13 +168,38 @@ speech.addEventListener('result', function(e){
     const text = e.results[0][0].transcript;
     content.innerText = text;
 
-    if(text == "bingo"){
-      console.log("bingo!");
-      execPost("game.php",  {'bingo':text});
-    }else{
-      console.log("not bingo!");
-      execPost("game.php",  {'bingo':text});
-    }
+    console.log("voice_bingo");
+      
+      $.ajax({
+        url: "./_ajax.php", 
+        type: "GET",
+        data: {
+          kind: "voice_bingo"
+        }
+      })
+        // Ajaxリクエストが成功した時発動
+        .done(data => {
+          console.log("ajax done");
+          console.log(data);
+          
+        })
+        // Ajaxリクエストが失敗した時発動
+        .fail(data => {
+          console.log("ajax fail");
+        })
+        // Ajaxリクエストが成功・失敗どちらでも発動
+        .always(data => {
+  
+        });
+
+
+    // if(text == "bingo"){
+    //   console.log("bingo!");
+    //   execPost("game.php",  {'bingo':text});
+    // }else{
+    //   console.log("not bingo!");
+    //   execPost("game.php",  {'bingo':text});
+    // }
 });
 
 /**
