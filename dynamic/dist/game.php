@@ -71,9 +71,9 @@ if (isset($_GET['comment'])) {
         <div class="history__newone">
 		  <p><span>\NEW/</span><span  id = "newnum">
 		  <?php if (isset($bingo)) {
-  			  echo $bingo;
-			}
-		  ?>
+    echo $bingo;
+}
+?>
 		  </span></p>
         </div>
         <ul class="history__list" id="history__list">
@@ -94,28 +94,28 @@ foreach ($numbers as $number) {
 	  <?php
 foreach ($users as $user) {
 
-	$rank = $bingoApp->getRank($user["name"]);
+    $rank = $bingoApp->getRank($user["name"]);
 
-	echo '<div class="member__item ';
-	
+    echo '<div class="member__item ';
+
     if ($rank === 0) {
         echo "";
-    } else if($rank === '1'){
+    } else if ($rank === '1') {
         echo "is-1st";
-    } else if($rank === '2'){
-		echo "is-2nd";
-	} else if($rank === '3'){
-		echo "is-3rd";
-	} else {
-		echo "is-" . $rank . "-th";
-	}
-	echo ' " id="'. $user["name"] .'">';
+    } else if ($rank === '2') {
+        echo "is-2nd";
+    } else if ($rank === '3') {
+        echo "is-3rd";
+    } else {
+        echo "is-" . $rank . "-th";
+    }
+    echo ' " id="' . $user["name"] . '">';
 
-	echo '<h3>' . $user["name"] . '</h3>';
+    echo '<h3>' . $user["name"] . '</h3>';
 
-	//var_dump($number);
+    //var_dump($number);
     echo '<ul><li>' . $user["num1"] . '</li><li>' . $user["num2"] . '</li><li>' . $user["num3"] . '</li><li>' . $user["num4"] . '</li><li>' . $user["num5"] . "</ul>";
-	echo '</div>';
+    echo '</div>';
 }
 ?>
 
@@ -169,9 +169,9 @@ speech.addEventListener('result', function(e){
     content.innerText = text;
 
     console.log("voice_bingo");
-      
+
       $.ajax({
-        url: "./_ajax.php", 
+        url: "./_ajax.php",
         dataType: 'json',
         type: "GET",
         data: {
@@ -187,12 +187,24 @@ speech.addEventListener('result', function(e){
           console.log(data.name);
           console.log(data.rank);
 
-          //TODO:仮に2番にしてみる
           var card = document.getElementById(data.name);
           console.log(card);
-          var rank = 'is-2nd';
-          card.classList.add('is-2nd');
-          
+
+          if (data.rank === 0) {
+            rank = '';
+          } else if(data.rank === '1'){
+            rank = "is-1st";
+          } else if(data.rank === '2'){
+            rank = "is-2nd";
+          } else if(data.rank === '3'){
+            rank = "is-3rd";
+          } else {
+            rank = "is-" + data.rank + "-th";
+          }
+
+//          var rank = 'is-2nd';
+          card.classList.add(rank);
+
         })
         // Ajaxリクエストが失敗した時発動
         .fail(data => {
@@ -200,7 +212,7 @@ speech.addEventListener('result', function(e){
         })
         // Ajaxリクエストが成功・失敗どちらでも発動
         .always(data => {
-  
+
         });
 
 
