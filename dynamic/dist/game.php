@@ -10,17 +10,6 @@ $bingoApp = new \MyApp\Bingo();
 
 $bingoApp->getMaxRank();
 
-//音声入力された。
-if (isset($_GET['bingo'])) {
-    echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
-
-    //ビンゴと言われたかチェックする
-    if ($_GET['bingo'] === "bingo") {
-        //ビンゴしたかチェックする
-        $bingoApp->checkBingo($_COOKIE['name']);
-    }
-}
-
 //リセットボタンが押された
 if (isset($_GET['reset'])) {
     echo "ユーザーreset!!!";
@@ -30,18 +19,9 @@ if (isset($_GET['reset'])) {
     $bingoApp->resetNum();
 }
 
-//ユーザー登録ボタンが押された
-if (isset($_GET['user'])) {
-    echo "add user";
-    $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
-}
 
 $numbers = $bingoApp->getAll();
 $users = $bingoApp->getAllUsers();
-
-if (isset($_GET['comment'])) {
-    $bingo = $bingoApp->slot(0, 30);
-}
 
 ?>
 <!DOCTYPE html>
