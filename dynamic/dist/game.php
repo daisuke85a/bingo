@@ -182,6 +182,8 @@ speech.addEventListener('result', function(e){
         .done(data => {
           console.log("ajax done");
           console.log(data);
+
+          
           
         })
         // Ajaxリクエストが失敗した時発動

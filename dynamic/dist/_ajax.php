@@ -22,7 +22,11 @@ else if($contents === 'voice_bingo'){
 
     $rank = $bingoApp->getRank($_COOKIE["name"]);
 
-    echo ($rank);
+    $array = array( "name" => $_COOKIE['name'], "rank" => $rank  );
+
+    // Origin null is not allowed by Access-Control-Allow-Origin.とかのエラー回避の為、ヘッダー付与
+    header("Access-Control-Allow-Origin: *");
+    echo json_encode($array);
 
 }
 
