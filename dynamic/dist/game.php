@@ -45,23 +45,7 @@ $users = $bingoApp->getAllUsers();
 //var_dump($numbers);
 
 if (isset($_GET['comment'])) {
-    if (count($numbers) !== 30) {
-        do {
-            $bingo = rand(0, 30);
-            $first = true;
-            foreach ($numbers as $number) {
-                //var_dump($number);
-                if (intval($number["number"]) === $bingo) {
-                    $first = false; //既出
-                    break;
-                }
-            }
-        } while ($first === false); //既出の限り続く
-
-        $bingoApp->insertNum($bingo);
-    } else {
-        echo "番号が全て出たのでビンゴを回せません！";
-    }
+    $bingo = $bingoApp->slot(0, 30);
 }
 
 ?>

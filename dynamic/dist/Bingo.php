@@ -100,6 +100,30 @@ class Bingo
         }
     }
 
+    public function slot($min , $max){
+         $numbers = $this->getAll();
+
+        if (count($numbers) !== $max) {
+            do {
+                $bingo = rand($min, $max);
+                $first = true;
+                foreach ($numbers as $number) {
+                    //var_dump($number);
+                    if (intval($number["number"]) === $bingo) {
+                        $first = false; //既出
+                        break;
+                    }
+                }
+            } while ($first === false); //既出の限り続く
+    
+            $this->insertNum($bingo);
+        } else {
+            echo "番号が全て出たのでビンゴを回せません！";
+        }
+
+        return $bingo;
+    }
+
     public function getRank($name){
         try {
             // $stmt = $this->_db->prepare("SELECT MAX( rank ) FROM bingorank");
@@ -231,4 +255,6 @@ class Bingo
             echo $e->getMessage();
         }
     }
+
+
 }
