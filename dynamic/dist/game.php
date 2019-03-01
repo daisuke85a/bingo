@@ -23,14 +23,11 @@ if (isset($_GET['bingo'])) {
 
 //リセットボタンが押された
 if (isset($_GET['reset'])) {
-    echo "番号reset!!!";
-    $bingoApp->resetNum();
-}
-
-if (isset($_GET['resetuser'])) {
     echo "ユーザーreset!!!";
-    $bingoApp->resetUser();
+    echo "番号reset!!!";
 
+    $bingoApp->resetUser();
+    $bingoApp->resetNum();
 }
 
 //ユーザー登録ボタンが押された
@@ -41,8 +38,6 @@ if (isset($_GET['user'])) {
 
 $numbers = $bingoApp->getAll();
 $users = $bingoApp->getAllUsers();
-//var_dump($users);
-//var_dump($numbers);
 
 if (isset($_GET['comment'])) {
     $bingo = $bingoApp->slot(0, 30);
@@ -126,7 +121,12 @@ foreach ($users as $user) {
       </section>
     </main>
     <footer class="footer">
-      <button class="buttonPrimary">やめる</button>
+    <form action="game.php" method="get">
+    <p>
+     <input type=“text” name =reset style="display:none" value="reset">
+     <!-- TODO:やめるボタンに猫脚と＞のマークが消えてしまった。多分buttonからinputに変更したのが原因 -->
+     <input type="submit" class="buttonPrimary" value="やめる">
+    </p>
       <div class="footer__deco">
         <button class="footer__tree01"></button>
         <button class="footer__house01"></button>
