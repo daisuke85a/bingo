@@ -33,16 +33,18 @@ else if($contents === 'voice_bingo'){
 
 }
 else if($contents === 'add_user'){
-    echo "add_user_res_form_ajax";
+    // echo "add_user_res_form_ajax";
 
-    echo $_GET['user'];
-    echo $_GET['num1'];
-    echo $_GET['num2'];
-    echo $_GET['num3'];
-    echo $_GET['num4'];
-    echo $_GET['num5'];
+    // echo $_GET['user'];
+    // echo $_GET['num1'];
+    // echo $_GET['num2'];
+    // echo $_GET['num3'];
+    // echo $_GET['num4'];
+    // echo $_GET['num5'];
 
     $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
+
+    echo $_GET['user'];
 }
 
 ?>

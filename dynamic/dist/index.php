@@ -319,7 +319,7 @@ if (isset($_GET['comment'])) {
 	<section class="member">
 		<div class="row">
 			<div class="col-sm-12">
-				<ul>
+				<ul id="user-list">
                     <?php
 
 foreach ($users as $user) {

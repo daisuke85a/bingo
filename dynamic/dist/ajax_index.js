@@ -8,6 +8,13 @@ document.getElementById('add_user').onclick = function(){
     if (xhr.readyState === 4) { //通信が完了した時
       if(xhr.status === 200) { //通信が成功した時
         console.log(xhr.responseText);
+
+        //ユーザーを追加
+        var user = document.createElement('li');
+        var text = document.createTextNode(xhr.responseText);
+        user.appendChild(text);
+        document.getElementById('user-list').appendChild(user);
+
       } else{ //通信が失敗した時
 
       }
