@@ -210,10 +210,10 @@ class Bingo
               $stmt->bindParam(':name', $name, \PDO::PARAM_STR);
               $stmt->bindParam(':rank', $newrank, \PDO::PARAM_INT);
               $stmt->execute();
-              echo $name . "さん、ビンゴです！</br>";
+              //TODO:: ajax化によりコメントアウト。やりきったら消す。echo $name . "さん、ビンゴです！</br>";
               //var_dump($newrank);
             }else{
-                echo $name . "さん、まだビンゴしていませんよ！</br>";
+             //TODO:: ajax化によりコメントアウト。やりきったら消す。echo $name . "さん、まだビンゴしていませんよ！</br>";
             }
             // echo "<br>result" . var_export( $result, true ) . "<br>";
 

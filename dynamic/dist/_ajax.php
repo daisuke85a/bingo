@@ -12,7 +12,18 @@ if($contents === 'goslot'){
     echo (string)$bingo;
 }
 else if($contents === 'voice_bingo'){
-    echo "voice_bingo_string=" .  $_GET['voice'];
+    //echo "voice_bingo_string=" .  $_GET['voice'];
+
+    //ビンゴと言われたかチェックする
+    if ($_GET['voice'] === "bingo") {
+        //ビンゴしたかチェックする
+        $bingoApp->checkBingo($_COOKIE['name']);
+    }
+
+    $rank = $bingoApp->getRank($_COOKIE["name"]);
+
+    echo ($rank);
+
 }
 
 
