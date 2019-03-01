@@ -191,7 +191,7 @@ speech.addEventListener('result', function(e){
           console.log(card);
 
           if (data.rank === 0) {
-            rank = '';
+            rank = ''; //TODO: ビンゴしてないことをユーザーに報知したい。
           } else if(data.rank === '1'){
             rank = "is-1st";
           } else if(data.rank === '2'){

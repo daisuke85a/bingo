@@ -19,6 +19,9 @@ else if($contents === 'voice_bingo'){
         //ビンゴしたかチェックする
         $bingoApp->checkBingo($_COOKIE['name']);
     }
+    else{
+        //TODO::ビンゴじゃない言葉を検出したことをユーザーに放置したい
+    }
 
     $rank = $bingoApp->getRank($_COOKIE["name"]);
 
