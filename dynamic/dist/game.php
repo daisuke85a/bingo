@@ -10,18 +10,59 @@ $bingoApp = new \MyApp\Bingo();
 
 $bingoApp->getMaxRank();
 
+//音声入力された。
+if (isset($_GET['bingo'])) {
+    echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
+
+    //ビンゴと言われたかチェックする
+    if ($_GET['bingo'] === "bingo") {
+        //ビンゴしたかチェックする
+        $bingoApp->checkBingo($_COOKIE['name']);
+    }
+}
+
 //リセットボタンが押された
 if (isset($_GET['reset'])) {
-    echo "ユーザーreset!!!";
     echo "番号reset!!!";
-
-    $bingoApp->resetUser();
     $bingoApp->resetNum();
 }
 
+if (isset($_GET['resetuser'])) {
+    echo "ユーザーreset!!!";
+    $bingoApp->resetUser();
+
+}
+
+//ユーザー登録ボタンが押された
+if (isset($_GET['user'])) {
+    echo "add user";
+    $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
+}
 
 $numbers = $bingoApp->getAll();
 $users = $bingoApp->getAllUsers();
+//var_dump($users);
+//var_dump($numbers);
+
+if (isset($_GET['comment'])) {
+    if (count($numbers) !== 31) {
+        do {
+            $bingo = rand(0, 30);
+            $first = true;
+            foreach ($numbers as $number) {
+                //var_dump($number);
+                if (intval($number["number"]) === $bingo) {
+                    $first = false; //既出
+                    break;
+                }
+            }
+        } while ($first === false); //既出の限り続く
+
+        $bingoApp->insertNum($bingo);
+    } else {
+        echo "番号が全て出たのでビンゴを回せません！";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +74,6 @@ $users = $bingoApp->getAllUsers();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800">
     <link rel="stylesheet" type="text/css" href="./game/game.78a35d31.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body class="body game">
     <main class="main" id="main">
@@ -44,19 +84,19 @@ $users = $bingoApp->getAllUsers();
     <p>
 	 <input type=“text” name =comment style="display:none" value="start">
 	 <!-- TODO:beforeとafterのマークがつかない。 -->
-     <input type="submit" class="buttonPrimary" id="go_slot" value="スロットを回す">
+     <input type="submit" class="buttonPrimary" value="スロットを回す">
     </p>
   </form>
         <!-- <button class="buttonPrimary">スロットまわす</button> -->
         <div class="history__newone">
-		  <p><span>\NEW/</span><span  id = "newnum">
+		  <p><span>\NEW/</span><span>
 		  <?php if (isset($bingo)) {
-    echo $bingo;
-}
-?>
+  			  echo $bingo;
+			}
+		  ?>
 		  </span></p>
         </div>
-        <ul class="history__list" id="history__list">
+        <ul class="history__list">
 		<?php
 foreach ($numbers as $number) {
     //var_dump($number);
@@ -74,40 +114,35 @@ foreach ($numbers as $number) {
 	  <?php
 foreach ($users as $user) {
 
-    $rank = $bingoApp->getRank($user["name"]);
+	$rank = $bingoApp->getRank($user["name"]);
 
-    echo '<div class="member__item ';
-
+	echo '<div class="member__item ';
+	
     if ($rank === 0) {
         echo "";
-    } else if ($rank === '1') {
+    } else if($rank === '1'){
         echo "is-1st";
-    } else if ($rank === '2') {
-        echo "is-2nd";
-    } else if ($rank === '3') {
-        echo "is-3rd";
-    } else {
-        echo "is-" . $rank . "-th";
-    }
-    echo ' " id="' . $user["name"] . '">';
+    } else if($rank === '2'){
+		echo "is-2nd";
+	} else if($rank === '3'){
+		echo "is-3rd";
+	} else {
+		echo "is-" . $rank . "-th";
+	}
+	echo ' ">';
 
-    echo '<h3>' . $user["name"] . '</h3>';
+	echo '<h3>' . $user["name"] . '</h3>';
 
-    //var_dump($number);
+	//var_dump($number);
     echo '<ul><li>' . $user["num1"] . '</li><li>' . $user["num2"] . '</li><li>' . $user["num3"] . '</li><li>' . $user["num4"] . '</li><li>' . $user["num5"] . "</ul>";
-    echo '</div>';
+	echo '</div>';
 }
 ?>
 
       </section>
     </main>
     <footer class="footer">
-    <form action="game.php" method="get">
-    <p>
-     <input type=“text” name =reset style="display:none" value="reset">
-     <!-- TODO:やめるボタンに猫脚と＞のマークが消えてしまった。多分buttonからinputに変更したのが原因 -->
-     <input type="submit" class="buttonPrimary" value="やめる">
-    </p>
+      <button class="buttonPrimary">やめる</button>
       <div class="footer__deco">
         <button class="footer__tree01"></button>
         <button class="footer__house01"></button>
@@ -148,61 +183,13 @@ speech.addEventListener('result', function(e){
     const text = e.results[0][0].transcript;
     content.innerText = text;
 
-    console.log("voice_bingo");
-
-      $.ajax({
-        url: "./_ajax.php",
-        dataType: 'json',
-        type: "GET",
-        data: {
-          kind: "voice_bingo",
-          voice: text
-        }
-      })
-        // Ajaxリクエストが成功した時発動
-        .done(data => {
-          console.log("ajax done");
-          console.log(data);
-
-          console.log(data.name);
-          console.log(data.rank);
-
-          var card = document.getElementById(data.name);
-          console.log(card);
-
-          if (data.rank === 0) {
-            rank = ''; //TODO: ビンゴしてないことをユーザーに報知したい。
-          } else if(data.rank === '1'){
-            rank = "is-1st";
-          } else if(data.rank === '2'){
-            rank = "is-2nd";
-          } else if(data.rank === '3'){
-            rank = "is-3rd";
-          } else {
-            rank = "is-" + data.rank + "-th";
-          }
-
-//          var rank = 'is-2nd';
-          card.classList.add(rank);
-
-        })
-        // Ajaxリクエストが失敗した時発動
-        .fail(data => {
-          console.log("ajax fail");
-        })
-        // Ajaxリクエストが成功・失敗どちらでも発動
-        .always(data => {
-
-        });
-
-
-    // if(text == "bingo"){
-    //   console.log("bingo!");
-    //   execPost("game.php",  {'bingo':text});
-    // }else{
-    //   console.log("not bingo!");
-    //   execPost("game.php",  {'bingo':text});
-    // }
+    if(text == "bingo"){
+      console.log("bingo!");
+      execPost("game.php",  {'bingo':text});
+    }else{
+      console.log("not bingo!");
+      execPost("game.php",  {'bingo':text});
+    }
 });
 
 /**
@@ -235,6 +222,6 @@ function execPost(action, data) {
 }
 
 </script>
-<script src="ajax.js"></script>
+
 </body>
 </html>

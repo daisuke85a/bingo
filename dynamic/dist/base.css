@@ -78,6 +78,7 @@ body {
   overflow-x: hidden; }
   body::before, body::after {
     content: "";
+    z-index: -1;
     background-image: url("img/side.png");
     background-repeat: repeat-y;
     background-size: 60px auto;

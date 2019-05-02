@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- title -->
+	<title>bingo</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="fabicon.ico" >
+
+	<!-- font -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="base.css">
+
+	<!-- typekit-->
+	<script src="https://use.typekit.net/fbr3jfe.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body id="top">
 <?php
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/functions.php';
@@ -69,32 +94,6 @@ if (isset($_GET['comment'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- title -->
-	<title>bingo</title>
-
-	<!-- favicon -->
-	<link rel="shortcut icon" href="fabicon.ico" >
-
-	<!-- font -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-	<!-- bootstrap -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="base.css">
-
-	<!-- typekit-->
-	<script src="https://use.typekit.net/fbr3jfe.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-</head>
-<body id="top">
 <!-- START / header ========== -->
 <header>
 	<h1><img src="img/logo.png" alt="みんニャでかんたんBINGO"></h1>
@@ -123,12 +122,13 @@ if (isset($_GET['comment'])) {
 				<ul>
 					<li>
 						<span>お名前</span>
-						<input type="text" name=user id="user" placeholder="お名前を入れてニャ">
+						<input type="text" name="user" placeholder="お名前を入れてニャ" required>
 					</li>
 					<li>
 						<span>番号1</span>
-						<select name="num1" id="num1">
+						<select name="num1">
 							<option value="">未設定</option>
+							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -163,8 +163,9 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号2</span>
-						<select name="num2" id="num2">
+						<select name="num2">
 							<option value="">未設定</option>
+							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -199,8 +200,9 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号3</span>
-						<select name="num3" id="num3">
+						<select name="num3">
 							<option value="">未設定</option>
+							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -235,8 +237,9 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号4</span>
-						<select name="num4" id="num4">
+						<select name="num4">
 							<option value="">未設定</option>
+							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -271,8 +274,9 @@ if (isset($_GET['comment'])) {
 					</li>
 					<li>
 						<span>番号5</span>
-						<select name="num5" id="num5">
+						<select name="num5">
 							<option value="">未設定</option>
+							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -305,7 +309,7 @@ if (isset($_GET['comment'])) {
 							<option value="30">30</option>
 						</select>
 					</li>
-					<li><input type="submit" id="add_user" value="登録"></li>
+					<li><input type="submit" value="登録"></li>
 				</ul>
 				</form>
 			</div>
@@ -319,7 +323,7 @@ if (isset($_GET['comment'])) {
 	<section class="member">
 		<div class="row">
 			<div class="col-sm-12">
-				<ul id="user-list">
+				<ul>
                     <?php
 
 foreach ($users as $user) {
@@ -333,13 +337,14 @@ foreach ($users as $user) {
 	</section>
 </div>
 <!-- END /  ========== -->
-<a href="game.php"><input class="btn-base btn-blue" type="submit" value="はじめる"></a>
+<!-- <a href="game.php"><input class="btn-base btn-blue" type="submit" value="はじめる"></a> -->
+<a href="game.php" class="btn-base btn-blue text-center">はじめる</a>
 
 <footer>
 	<p>team bingo</p>
 </footer>
 
-</body>
+
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- bootstrap -->
@@ -385,12 +390,13 @@ foreach ($users as $user) {
 </script>
 
 <!-- matchheight -->
-<script src="js/jquery.matchHeight-min.js"></script>
+<?php /* <script src="js/jquery.matchHeight-min.js"></script>
 <script type="text/javascript">
 $(function() {
     $('.point').matchHeight();
 });
-</script>
+</script> */
+ ?>
 
 <!-- animation -->
 <script type="text/javascript">
@@ -407,6 +413,7 @@ $(window).scroll(function(){
 });
 </script>
 
+
 <!-- smooth scroll -->
 <script>
 	$('a[href^="#"]').click(function() {
@@ -422,11 +429,7 @@ $(window).scroll(function(){
 	});
 </script>
 
-</html>
-
-
-
-  <script>
+<script>
 /**
  * データをPOSTする
  * @param String アクション
@@ -457,6 +460,9 @@ function execPost(action, data) {
 }
 
 </script>
-<script src="ajax_index.js"></script>
 
 </body>
+</html>
+
+
+
