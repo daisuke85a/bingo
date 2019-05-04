@@ -131,7 +131,7 @@ foreach ($users as $user) {
 	}
 	echo ' ">';
 
-  if ($_COOKIE[name] == $user["name"]) {
+  if ($_COOKIE["name"] == $user["name"]) {
     // 自身が登録したユーザ名の場合は背景色を変更する(1ユーザのみ)
     echo '<h3 style="background-color:#FFAD3B;">' . $user["name"] . '</h3>';
   } else {
