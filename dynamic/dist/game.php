@@ -5,6 +5,7 @@ require_once __DIR__ . '/Bingo.php';
 
 //var_dump($_POST);
 //var_dump($_GET);
+const DEFAULT_BINGO_CNT = 5;
 
 $bingoApp = new \MyApp\Bingo();
 
@@ -133,8 +134,32 @@ foreach ($users as $user) {
 
 	echo '<h3>' . $user["name"] . '</h3>';
 
-	//var_dump($number);
-    echo '<ul><li>' . $user["num1"] . '</li><li>' . $user["num2"] . '</li><li>' . $user["num3"] . '</li><li>' . $user["num4"] . '</li><li>' . $user["num5"] . "</ul>";
+  //var_dump($number);
+  $bingo_row = '<ul>';
+  // 最新版を取得する
+  $numbers = $bingoApp->getAll();
+  for ($i = 1; $i <= DEFAULT_BINGO_CNT; $i++) {
+    foreach ($numbers as $number) {
+      if($number["number"] == $user["num".$i]) {
+        // 同じ番号である場合は背景色を変更
+        $user["color".$i] = true;
+      } else {
+        if ($user["color".$i]) {
+          // すでに背景色を変更している場合はbreakする
+          break;
+        }
+          // 異なる番号の場合は背景書はデフォルト
+          $user["color".$i] = false;
+        }
+    }
+    if ($user["color".$i]) {
+      $bingo_row.='<li style="background-color:orange;">'.$user["num".$i].'</li>';
+    } else {
+      $bingo_row.='<li>'.$user["num".$i].'</li>';
+    }
+  }
+  $bingo_row.='</ul>';
+  echo $bingo_row;
 	echo '</div>';
 }
 ?>
