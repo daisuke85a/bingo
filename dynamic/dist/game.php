@@ -148,7 +148,8 @@ foreach ($users as $user) {
       </section>
     </main>
     <footer class="footer">
-      <button class="buttonPrimary">やめる</button>
+      <a href="./reset/reset.php"><button class="buttonPrimary">やめる</button></a>
+      <!-- <button class="buttonPrimary">やめる</button> -->
       <div class="footer__deco">
         <button class="footer__tree01"></button>
         <button class="footer__house01"></button>
