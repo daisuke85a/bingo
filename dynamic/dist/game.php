@@ -131,7 +131,13 @@ foreach ($users as $user) {
 	}
 	echo ' ">';
 
-	echo '<h3>' . $user["name"] . '</h3>';
+  if ($_COOKIE[name] == $user["name"]) {
+    // 自身が登録したユーザ名の場合は背景色を変更する(1ユーザのみ)
+    echo '<h3 style="background-color:#FFAD3B;">' . $user["name"] . '</h3>';
+  } else {
+    // 他人が登録したユーザ名の場合は背景色はデフォルト
+    echo '<h3>' . $user["name"] . '</h3>';
+  }
 
 	//var_dump($number);
     echo '<ul><li>' . $user["num1"] . '</li><li>' . $user["num2"] . '</li><li>' . $user["num3"] . '</li><li>' . $user["num4"] . '</li><li>' . $user["num5"] . "</ul>";
