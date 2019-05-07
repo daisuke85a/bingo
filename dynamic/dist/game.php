@@ -89,7 +89,14 @@ if (isset($_GET['comment'])) {
   <div class="contents"> <!-- START / スロットまわす ========== -->
     <section class="history"> 
       <!-- START / ボタン ========== --> 
-      <a class="btn-base btn-blue">スロットまわす</a> 
+      <!-- <a class="btn-base btn-blue">スロットまわす</a>  -->
+      <form action="game.php" method="get">
+        <p>
+          <input type=“text” name =comment style="display:none" value="start">
+          <!-- TODO:beforeとafterのマークがつかない。 -->
+          <input type="submit" class="btn-base btn-blue" value="スロットまわす">
+        </p>
+      </form>
       <!-- END / ボタン ========== --> 
       <!-- START / NEW ========== -->
       <div class="history__newone">
