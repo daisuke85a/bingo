@@ -14,6 +14,76 @@
 <link rel="stylesheet" href="css/top.css">
 </head>
 <body id="main">
+<?php
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/Bingo.php';
+
+$bingoApp = new \MyApp\Bingo();
+
+$bingoApp->getMaxRank();
+
+if (isset($_COOKIE['name'])) {
+    echo "<p>私の名前は" . $_COOKIE['name'] . "です</p>";
+} else {
+    echo "<p>ビンゴカードが未登録です</p>";
+}
+
+//音声入力された。
+if (isset($_GET['bingo'])) {
+    echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
+
+    //ビンゴと言われたかチェックする
+    if ($_GET['bingo'] === "bingo") {
+        //ビンゴしたかチェックする
+        $bingoApp->checkBingo($_COOKIE['name']);
+    }
+}
+
+//リセットボタンが押された
+if (isset($_GET['reset'])) {
+    echo "番号reset!!!";
+    $bingoApp->resetNum();
+}
+
+if (isset($_GET['resetuser'])) {
+    echo "ユーザーreset!!!";
+    $bingoApp->resetUser();
+
+}
+
+//ユーザー登録ボタンが押された
+if (isset($_GET['user'])) {
+    echo "add user";
+    $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
+}
+
+$numbers = $bingoApp->getAll();
+$users = $bingoApp->getAllUsers();
+//var_dump($users);
+//var_dump($numbers);
+
+if (isset($_GET['comment'])) {
+    if (count($numbers) !== 30) {
+        do {
+            $bingo = rand(0, 30);
+            $first = true;
+            foreach ($numbers as $number) {
+                //var_dump($number);
+                if (intval($number["number"]) === $bingo) {
+                    $first = false; //既出
+                    break;
+                }
+            }
+        } while ($first === false); //既出の限り続く
+
+        $bingoApp->insertNum($bingo);
+    } else {
+        echo "番号が全て出たのでビンゴを回せません！";
+    }
+}
+
+?>
 <div class="wrap"> 
   <!-- START / header ========== -->
   <header>
@@ -35,13 +105,13 @@
     <!-- END / 説明 ========== --> 
     <!-- START / 登録フォーム ========== -->
     <section class="form">
-      <form>
+      <form action="index.php" method="get">
         <p><span>お名前</span>
-          <input type="text" placeholder="お名前を入れてニャ" required>
+          <input type="text" name="user" placeholder="お名前を入れてニャ" required>
         </p>
         <ul>
           <li> <span>番号1</span>
-            <select name="number1">
+            <select name="num1">
               <option value="">未設定</option>
               <option value="00">00</option>
               <option value="01">01</option>
@@ -77,7 +147,7 @@
             </select>
           </li>
           <li> <span>番号2</span>
-            <select name="number2">
+            <select name="num2">
               <option value="">未設定</option>
               <option value="00">00</option>
               <option value="01">01</option>
@@ -113,7 +183,7 @@
             </select>
           </li>
           <li> <span>番号3</span>
-            <select name="number3">
+            <select name="num3">
               <option value="">未設定</option>
               <option value="00">00</option>
               <option value="01">01</option>
@@ -149,7 +219,7 @@
             </select>
           </li>
           <li> <span>番号4</span>
-            <select name="number4">
+            <select name="num4">
               <option value="">未設定</option>
               <option value="00">00</option>
               <option value="01">01</option>
@@ -185,7 +255,7 @@
             </select>
           </li>
           <li> <span>番号5</span>
-            <select name="number5">
+            <select name="num5">
               <option value="">未設定</option>
               <option value="00">00</option>
               <option value="01">01</option>
@@ -231,21 +301,17 @@
     <h2>登録済みメンバー</h2>
     <section class="member">
       <ul>
-        <li>参加者A</li>
-        <li>参加者B</li>
-        <li>参加者C</li>
-        <li>参加者D</li>
-        <li>参加者E</li>
-        <li>参加者F</li>
-        <li>参加者G</li>
-        <li>参加者H</li>
-        <li>参加者I</li>
-        <li>参加者J</li>
+	  	<?php
+		foreach ($users as $user) {
+    		echo '<li>' . $user["name"] . '</li>';
+		}
+		?>
       </ul>
     </section>
     <!-- END / 登録済みメンバー ========== --> 
-    <!-- START / ボタン ========== --> 
-    <a class="btn-base btn-blue">はじめる</a> 
+	<!-- START / ボタン ========== --> 
+	<!-- TODO: game.phpへのリンクが機能しない。。。 -->
+    <a href="game.php" class="btn-base btn-blue">はじめる</a> 
     <!-- END / ボタン ========== --> 
   </div>
   <!-- START / footer ========== -->
@@ -270,5 +336,35 @@
 <!-- smooth scroll --> 
 <script src="js/smooth-scroll.min.js"></script> 
 <script>var scroll = new SmoothScroll('a[href*="#"]');</script>
+<script>
+/**
+ * データをPOSTする
+ * @param String アクション
+ * @param Object POSTデータ連想配列
+ * 記述元Webページ http://fujiiyuuki.blogspot.jp/2010/09/formjspost.html
+ * サンプルコード
+ * <a onclick="execPost('/hoge', {'fuga':'fuga_val', 'piyo':'piyo_val'});return false;" href="#">POST送信</a>
+ */
+function execPost(action, data) {
+ // フォームの生成
+ var form = document.createElement("form");
+ form.setAttribute("action", action);
+ form.setAttribute("method", "get");
+ form.style.display = "none";
+ document.body.appendChild(form);
+ // パラメタの設定
+ if (data !== undefined) {
+  for (var paramName in data) {
+   var input = document.createElement('input');
+   input.setAttribute('type', 'hidden');
+   input.setAttribute('name', paramName);
+   input.setAttribute('value', data[paramName]);
+   form.appendChild(input);
+  }
+ }
+ // submit
+ form.submit();
+}
+</script>
 </body>
 </html>
