@@ -115,7 +115,7 @@ if (isset($_GET['comment'])) {
       </div>
     </section>
     <!-- START / ボタン ========== --> 
-    <a class="btn-base btn-bingo">BINGOさけぶ</a> 
+    <a class="btn-base btn-bingo" id="btn">BINGOさけぶ</a> 
     <!-- END / ボタン ========== --> 
     <!-- END / ビンゴさけぶ ========== --> 
     <!-- START / メンバー ========== -->
@@ -186,9 +186,65 @@ if (isset($_GET['comment'])) {
     <p class="footer__copy">© team BINGO !!</p>
   </footer>
   <!-- END / footer ========== --> 
+  <div id="content"></div>
 </div>
 <!-- smooth scroll --> 
 <script src="js/smooth-scroll.min.js"></script> 
 <script>var scroll = new SmoothScroll('a[href*="#"]');</script>
+<script>
+const speech = new webkitSpeechRecognition();
+speech.lang = 'en-US';
+
+const btn = document.getElementById('btn');
+const content = document.getElementById('content');
+
+btn.addEventListener('click', function(){
+    speech.start();
+});
+
+speech.addEventListener('result', function(e){
+    console.log(e);
+
+    const text = e.results[0][0].transcript;
+    content.innerText = text;
+
+    if(text == "bingo"){
+      console.log("bingo!");
+      execPost("game.php",  {'bingo':text});
+    }else{
+      console.log("not bingo!");
+      execPost("game.php",  {'bingo':text});
+    }
+});
+
+/**
+ * データをPOSTする
+ * @param String アクション
+ * @param Object POSTデータ連想配列
+ * 記述元Webページ http://fujiiyuuki.blogspot.jp/2010/09/formjspost.html
+ * サンプルコード
+ * <a onclick="execPost('/hoge', {'fuga':'fuga_val', 'piyo':'piyo_val'});return false;" href="#">POST送信</a>
+ */
+function execPost(action, data) {
+ // フォームの生成
+ var form = document.createElement("form");
+ form.setAttribute("action", action);
+ form.setAttribute("method", "get");
+ form.style.display = "none";
+ document.body.appendChild(form);
+ // パラメタの設定
+ if (data !== undefined) {
+  for (var paramName in data) {
+   var input = document.createElement('input');
+   input.setAttribute('type', 'hidden');
+   input.setAttribute('name', paramName);
+   input.setAttribute('value', data[paramName]);
+   form.appendChild(input);
+  }
+ }
+ // submit
+ form.submit();
+}
+</script>
 </body>
 </html>
