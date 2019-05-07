@@ -25,56 +25,68 @@ time, mark, audio, video {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 nav ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 a {
   margin: 0;
   padding: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+}
 
 /* change colours to suit your needs */
 ins {
   background-color: #ff9;
   color: #000;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /* change colours to suit your needs */
 mark {
   background-color: #ff9;
   color: #000;
   font-style: italic;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 del {
-  text-decoration: line-through; }
+  text-decoration: line-through;
+}
 
 abbr[title], dfn[title] {
   border-bottom: 1px dotted;
-  cursor: help; }
+  cursor: help;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 /* change border colour to suit your needs */
 hr {
@@ -83,10 +95,12 @@ hr {
   border: 0;
   border-top: 1px solid #cccccc;
   margin: 1em 0;
-  padding: 0; }
+  padding: 0;
+}
 
 input, select {
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /*---------------------------------
   
@@ -98,26 +112,32 @@ a, a:hover {
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease; }
+  -o-transition: all 0.3s ease;
+}
 
 /* ====== reset ====== */
 p {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 ul {
   margin: 0;
-  padding: 0; }
-  ul li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 /* ====== btn ====== */
 button {
   border: none;
   background-color: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 button, [type="button"], [type="reset"], [type="submit"] {
   cursor: pointer;
@@ -127,7 +147,8 @@ button, [type="button"], [type="reset"], [type="submit"] {
   outline: 0;
   overflow: visible;
   text-transform: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .btn-base {
   width: 300px;
@@ -144,42 +165,50 @@ button, [type="button"], [type="reset"], [type="submit"] {
   text-align: center;
   background-color: #56c0e0;
   position: relative;
-  cursor: pointer; }
-  .btn-base:hover {
-    background-color: #ffad3b; }
-  .btn-base::before {
-    content: "";
-    width: 25px;
-    height: 25px;
-    background-image: url("../img/icon-stamp.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 12px;
-    top: 0;
-    bottom: 0;
-    margin: auto; }
-  .btn-base::after {
-    content: "";
-    right: 15px;
-    width: 10px;
-    height: 10px;
-    top: -1px;
-    bottom: 0;
-    margin: auto;
-    transform: rotate(45deg);
-    border-top: 4px solid #333;
-    border-right: 4px solid #333;
-    position: absolute;
-    border-radius: 10%; }
+  cursor: pointer;
+}
+
+.btn-base:hover {
+  background-color: #ffad3b;
+}
+
+.btn-base::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-image: url("../img/icon-stamp.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.btn-base::after {
+  content: "";
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  top: -1px;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(45deg);
+  border-top: 4px solid #333;
+  border-right: 4px solid #333;
+  position: absolute;
+  border-radius: 10%;
+}
 
 /* ====== title ====== */
 h1, h2, h3 {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  text-align: center; }
+  text-align: center;
+}
 
 h2 {
   background-color: #ffe631;
@@ -191,11 +220,13 @@ h2 {
   border-radius: 15px 15px 0 0;
   background-image: url("../img/foot.png");
   background-position: center;
-  background-size: auto 60px; }
+  background-size: auto 60px;
+}
 
 /* ====== text ====== */
 strong {
-  color: #ffad3b; }
+  color: #ffad3b;
+}
 
 /*---------------------------------
   
@@ -216,113 +247,158 @@ body {
   font-size: 16px;
   line-height: 1.8em;
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  overflow-x: hidden; }
-  body::before, body::after {
-    content: "";
-    background-image: url("../img/side.png");
-    /* 左右の肉球 */
-    background-repeat: repeat-y;
-    background-size: 50px auto;
-    position: absolute;
-    width: 150px;
-    height: 100%;
-    opacity: 0.8;
-    z-index: -1; }
-  body::before {
-    left: -20px; }
-  body::after {
-    right: -20px;
-    transform: scale(-1, 1);
-    top: -50px; }
+  overflow-x: hidden;
+}
+
+body::before, body::after {
+  content: "";
+  background-image: url("../img/side.png");
+  /* 左右の肉球 */
+  background-repeat: repeat-y;
+  background-size: 50px auto;
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+body::before {
+  left: -20px;
+}
+
+body::after {
+  right: -20px;
+  transform: scale(-1, 1);
+  top: -50px;
+}
 
 .wrap {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .contents {
   max-width: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 @media screen and (min-width: 992px) {
   .contents {
     width: 1000px;
-    /* コンテンツ幅 */ } }
+    /* コンテンツ幅 */
+  }
+}
+
 @media screen and (max-width: 991px) {
   .contents {
-    padding: 15px; } }
+    padding: 15px;
+  }
+}
+
 /* ====== 1. header ====== */
 header {
   position: relative;
-  padding: 20px 0 10px; }
-  header::before, header::after {
-    content: "";
-    background-image: url("../img/flag.png");
-    /* 左右の旗 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    display: block;
-    top: 0; }
-  header::before {
-    left: 0; }
-  header::after {
-    transform: scale(-1, 1);
-    right: 0; }
+  padding: 20px 0 10px;
+}
+
+header::before, header::after {
+  content: "";
+  background-image: url("../img/flag.png");
+  /* 左右の旗 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+header::before {
+  left: 0;
+}
+
+header::after {
+  transform: scale(-1, 1);
+  right: 0;
+}
 
 h1 img {
   width: 600px;
   /* ロゴの横幅 */
   max-width: 90%;
   margin: 0 auto;
-  display: block; }
+  display: block;
+}
 
 @media screen and (min-width: 768px) {
   header::before, header::after {
     width: 150px;
-    height: 100px; } }
+    height: 100px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   header::before, header::after {
-    display: hidden; } }
+    display: hidden;
+  }
+}
+
 /* ====== 2. footer ====== */
 .footer {
-  position: relative; }
-  .footer .footer__copy {
-    text-align: center;
-    color: #fff;
-    font-size: 0.9em;
-    font-weight: 100;
-    letter-spacing: 0.1em;
-    background-color: #adcb5f;
-    padding: 10px 0 15px; }
-  .footer .footer__deco {
-    position: relative;
-    /* 草 */ }
-    .footer .footer__deco ul {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-around;
-      align-items: flex-end; }
-      .footer .footer__deco ul li {
-        flex: 0 1 auto;
-        align-self: flex-end; }
-        .footer .footer__deco ul li:first-child, .footer .footer__deco ul li:last-child {
-          flex: 0 1 10%; }
-        .footer .footer__deco ul li span {
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center bottom;
-          display: block;
-          margin: auto;
-          cursor: pointer; }
-    .footer .footer__deco::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2rem;
-      bottom: -1rem;
-      left: 0;
-      background: repeat-x center top url("../img/footer.png");
-      z-index: 3; }
+  position: relative;
+  z-index: -1;
+}
+
+.footer .footer__copy {
+  text-align: center;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  background-color: #adcb5f;
+  padding: 10px 0 15px;
+}
+
+.footer .footer__deco {
+  position: relative;
+  /* 草 */
+}
+
+.footer .footer__deco ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.footer .footer__deco ul li {
+  flex: 0 1 auto;
+  align-self: flex-end;
+}
+
+.footer .footer__deco ul li:first-child, .footer .footer__deco ul li:last-child {
+  flex: 0 1 10%;
+}
+
+.footer .footer__deco ul li span {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.footer .footer__deco::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2rem;
+  bottom: -1rem;
+  left: 0;
+  background: repeat-x center top url("../img/footer.png");
+  z-index: 3;
+}
 
 /* アルパカ */
 .footer__alpaca {
@@ -331,160 +407,232 @@ h1 img {
   transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
   background-size: contain;
   animation: moveimg 100s infinite;
-  z-index: 4; }
-  .footer__alpaca:hover {
-    transform: scale(1.05) translate(0, -10%); }
+  z-index: 4;
+}
+
+.footer__alpaca:hover {
+  transform: scale(1.05) translate(0, -10%);
+}
 
 /* 家 */
 .footer__house01 {
-  background-image: url("../img/house03.png"); }
-  .footer__house01:hover {
-    animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards; }
+  background-image: url("../img/house03.png");
+}
+
+.footer__house01:hover {
+  animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards;
+}
 
 .footer__house02 {
-  background-image: url("../img/house01.png"); }
-  .footer__house02:hover {
-    animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards; }
+  background-image: url("../img/house01.png");
+}
+
+.footer__house02:hover {
+  animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards;
+}
 
 .footer__house03 {
-  background-image: url("../img/house05.png"); }
-  .footer__house03:hover {
-    animation: dance 0.7s linear 0s infinite alternate none; }
+  background-image: url("../img/house05.png");
+}
+
+.footer__house03:hover {
+  animation: dance 0.7s linear 0s infinite alternate none;
+}
 
 .footer__house04 {
-  background-image: url("../img/house02.png"); }
-  .footer__house04:hover {
-    animation: dance 0.7s linear 0s infinite alternate none; }
+  background-image: url("../img/house02.png");
+}
+
+.footer__house04:hover {
+  animation: dance 0.7s linear 0s infinite alternate none;
+}
 
 .footer__house05 {
-  background-image: url("../img/house04.png"); }
-  .footer__house05:hover {
-    animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards; }
+  background-image: url("../img/house04.png");
+}
+
+.footer__house05:hover {
+  animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards;
+}
 
 .footer__house06 {
-  background-image: url("../img/house06.png"); }
-  .footer__house06:hover {
-    animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards; }
+  background-image: url("../img/house06.png");
+}
+
+.footer__house06:hover {
+  animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards;
+}
 
 /* 木 */
 .footer__tree01:hover, .footer__tree02:hover {
-  animation: growup 1s steps(1) 0s infinite alternate none; }
+  animation: growup 1s steps(1) 0s infinite alternate none;
+}
 
 .footer__tree01 {
-  background-image: url("../img/tree01.png"); }
+  background-image: url("../img/tree01.png");
+}
 
 .footer__tree02 {
-  background-image: url("../img/tree02.png"); }
+  background-image: url("../img/tree02.png");
+}
 
 /* animation */
 @keyframes raise {
   0% {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+  }
   100% {
-    margin-bottom: 3rem; } }
+    margin-bottom: 3rem;
+  }
+}
+
 @keyframes rotate {
   0% {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes dance {
   0% {
-    transform: skew(0) scale(1); }
+    transform: skew(0) scale(1);
+  }
   33% {
-    transform: skew(-5deg) scale(1.1); }
+    transform: skew(-5deg) scale(1.1);
+  }
   50% {
-    transform: skew(0) scale(1.2); }
+    transform: skew(0) scale(1.2);
+  }
   66% {
-    transform: skew(5deg) scale(1.1); }
+    transform: skew(5deg) scale(1.1);
+  }
   100% {
-    transform: skew(0) scale(1); } }
+    transform: skew(0) scale(1);
+  }
+}
+
 @keyframes growup {
   0% {
-    transform: translateY(0px) scale(1); }
+    transform: translateY(0px) scale(1);
+  }
   20% {
-    transform: translateY(-4px) scale(1.1); }
+    transform: translateY(-4px) scale(1.1);
+  }
   40% {
-    transform: translateY(-8px) scale(1.05); }
+    transform: translateY(-8px) scale(1.05);
+  }
   60% {
-    transform: translateY(-12px) scale(1.25); }
+    transform: translateY(-12px) scale(1.25);
+  }
   80% {
-    transform: translateY(-16px) scale(1.2); }
+    transform: translateY(-16px) scale(1.2);
+  }
   100% {
-    transform: translateY(-20px) scale(1.5); } }
+    transform: translateY(-20px) scale(1.5);
+  }
+}
+
 @keyframes moveimg {
   0% {
     right: -15%;
-    transform: rotate(0deg) scale(1, 1); }
+    transform: rotate(0deg) scale(1, 1);
+  }
   10% {
     right: 0%;
-    transform: rotate(10deg) scale(1, 1); }
+    transform: rotate(10deg) scale(1, 1);
+  }
   20% {
     right: 25%;
-    transform: rotate(0deg) scale(1, 1); }
+    transform: rotate(0deg) scale(1, 1);
+  }
   30% {
     right: 50%;
-    transform: rotate(-10deg) scale(1, 1); }
+    transform: rotate(-10deg) scale(1, 1);
+  }
   40% {
     right: 75%;
-    transform: rotate(0deg) scale(1, 1); }
+    transform: rotate(0deg) scale(1, 1);
+  }
   50% {
     right: 100%;
-    transform: rotate(10deg) scale(1, 1); }
+    transform: rotate(10deg) scale(1, 1);
+  }
   51% {
     right: 100%;
-    transform: rotate(0deg) scale(-1, 1); }
+    transform: rotate(0deg) scale(-1, 1);
+  }
   60% {
     right: 75%;
-    transform: rotate(-10deg) scale(-1, 1); }
+    transform: rotate(-10deg) scale(-1, 1);
+  }
   70% {
     right: 50%;
-    transform: rotate(0deg) scale(-1, 1); }
+    transform: rotate(0deg) scale(-1, 1);
+  }
   80% {
     right: 25%;
-    transform: rotate(10deg) scale(-1, 1); }
+    transform: rotate(10deg) scale(-1, 1);
+  }
   90% {
     right: 0%;
-    transform: rotate(0deg) scale(-1, 1); }
+    transform: rotate(0deg) scale(-1, 1);
+  }
   100% {
     right: -15%;
-    transform: rotate(-10deg) scale(-1, 1); } }
+    transform: rotate(-10deg) scale(-1, 1);
+  }
+}
+
 @media screen and (min-width: 992px) {
   footer {
-    margin: -80px 0 0 0; } }
+    margin: -80px 0 0 0;
+  }
+}
+
 @media screen and (max-width: 991px) {
   footer {
-    margin: -50px 0 0 0; } }
+    margin: -50px 0 0 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   /* 家 */
   .footer__house01, .footer__house02, .footer__house03, .footer__house04, .footer__house05, .footer__house06 {
     width: 4rem;
-    height: 4rem; }
-
+    height: 4rem;
+  }
   /* 木 */
   .footer__tree01, .footer__tree02 {
     width: 10rem;
-    height: 10rem; }
-
+    height: 10rem;
+  }
   /* アルパカ */
   .footer__alpaca {
     right: 0;
     bottom: 15px;
     width: 150px;
-    height: 150px; } }
+    height: 150px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   /* 家 */
   .footer__house01, .footer__house02, .footer__house03, .footer__house04, .footer__house05, .footer__house06 {
     width: 3rem;
     height: 3rem;
-    transform: translateY(-5px); }
-
+    transform: translateY(-5px);
+  }
   /* 木 */
   .footer__tree01, .footer__tree02 {
-    height: 6rem; }
-
+    height: 6rem;
+  }
   /* アルパカ */
   .footer__alpaca {
     right: 0;
     bottom: 15px;
     width: 100px;
-    height: 100px; } }
+    height: 100px;
+  }
+}

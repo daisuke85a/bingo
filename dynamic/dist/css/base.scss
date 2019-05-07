@@ -110,6 +110,7 @@ h1 img{
 /* ====== 2. footer ====== */
 .footer{
 	position: relative;
+	z-index: -1;
 	& .footer__copy{
 		text-align: center;
 		color: #fff;
