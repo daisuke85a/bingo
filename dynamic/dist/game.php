@@ -172,7 +172,7 @@ if (isset($_GET['comment'])) {
     </section>
     <!-- END / メンバー ========== --> 
     <!-- START / ボタン ========== --> 
-    <a class="btn-base btn-blue">やめる</a> 
+    <a href="./reset/reset.php" class="btn-base btn-blue">やめる</a> 
     <!-- END / ボタン ========== --> 
   </div>
   <!-- START / footer ========== -->
