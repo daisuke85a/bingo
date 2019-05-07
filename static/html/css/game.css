@@ -1,0 +1,364 @@
+@charset "UTF-8";
+/*---------------------------------
+  
+	// ゲーム画面 //
+
+	・ スロットまわす
+	・ ビンゴさけぶ
+	・ メンバー
+
+---------------------------------*/
+/* ====== スロットまわす ====== */
+/* ボタン */
+.history .btn-base {
+  margin: 10px auto 30px; }
+
+/* 履歴 */
+.history__list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  .history__list > li {
+    display: block;
+    background-color: #fff;
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.8em;
+    line-height: 3em; }
+  .history__list > li, .history__list .history__newone > p {
+    position: relative;
+    box-shadow: -0.6rem 0.6rem 1rem rgba(0, 0, 0, 0.05); }
+  .history__list > li:before, .history__list > p:before {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: content-box;
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-top-color: #F8F7F0;
+    border-right-color: #F8F7F0;
+    border-bottom-color: #F0EEE4;
+    border-left-color: #F0EEE4; }
+
+/* NEW */
+.history__newone {
+  position: relative;
+  width: 240px;
+  max-width: 80%;
+  margin: auto; }
+  .history__newone::before, .history__newone::after {
+    content: "";
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: -5px;
+    bottom: 0;
+    margin: auto;
+    z-index: 1; }
+  .history__newone::before {
+    background-image: url("../img/baloon-left.png");
+    animation: fuwafuwa-left 3s infinite linear alternate; }
+  .history__newone::after {
+    background-image: url("../img/baloon-right.png");
+    animation: fuwafuwa-right 3s infinite linear alternate; }
+  .history__newone p {
+    height: 10rem;
+    width: 240px;
+    max-width: 80%;
+    margin: 0 auto 35px;
+    text-align: center;
+    background-color: #fff;
+    border: 8px solid #a60;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+    position: relative; }
+    .history__newone p span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      font-size: 80px;
+      font-weight: 800;
+      line-height: 0.64em;
+      display: block;
+      height: 125px; }
+      .history__newone p span::before {
+        content: "＼NEW／";
+        color: #e76c78;
+        display: block;
+        font-size: 0.25em;
+        letter-spacing: 0.2em;
+        padding-left: 0.2em;
+        white-space: nowrap;
+        word-break: keep-all; }
+
+@media screen and (min-width: 768px) {
+  .history__newone::before, .history__newone::after {
+    width: 200px;
+    height: 200px; }
+  .history__newone::before {
+    left: -150px; }
+  .history__newone::after {
+    right: -150px; } }
+@media screen and (max-width: 767px) {
+  .history__newone::before, .history__newone::after {
+    width: 180px;
+    height: 180px;
+    z-index: -1; }
+  .history__newone::before {
+    left: -120px; }
+  .history__newone::after {
+    right: -120px; } }
+/* 背景 */
+@media screen and (min-width: 768px) {
+  .history {
+    z-index: -1;
+    background: no-repeat 10% 5rem/30px url("../img/bird-yellow.png"), no-repeat 11% 11rem/30px url("../img/bird-pink.png"), no-repeat 78% 6rem/30px url("../img/bird-pink.png"), no-repeat 88% 8.5rem/30px url("../img/bird-blue.png"), no-repeat 5% 5%/150px url("../img/cloud01.png"), no-repeat 18% 11rem/150px url("../img/cloud02.png"), no-repeat 88% 11rem/150px url("../img/cloud03.png"), no-repeat 98% top/150px url("../img/cloud04.png"); } }
+/* animation */
+.fuwafuwa-left {
+  -webkit-animation: fuwafuwa-left 3s infinite linear alternate;
+  animation: fuwafuwa-left 3s infinite linear alternate; }
+
+@-webkit-keyframes fuwafuwa-left {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(-5deg); }
+  50% {
+    -webkit-transform: translate(0, -5px) rotate(0deg); }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(5deg); } }
+@keyframes fuwafuwa-left {
+  0% {
+    transform: translate(0, 0) rotate(-5deg); }
+  50% {
+    transform: translate(0, -5px) rotate(0deg); }
+  100% {
+    transform: translate(0, 0) rotate(5deg); } }
+.fuwafuwa-right {
+  -webkit-animation: fuwafuwa-right 3s infinite linear alternate;
+  animation: fuwafuwa-right 3s infinite linear alternate; }
+
+@-webkit-keyframes fuwafuwa-right {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(5deg); }
+  50% {
+    -webkit-transform: translate(0, -5px) rotate(0deg); }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(-5deg); } }
+@keyframes fuwafuwa-right {
+  0% {
+    transform: translate(0, 0) rotate(5deg); }
+  50% {
+    transform: translate(0, -5px) rotate(0deg); }
+  100% {
+    transform: translate(0, 0) rotate(-5deg); } }
+/* ====== ビンゴさけぶ ====== */
+/* ボタン */
+.btn-bingo {
+  margin: 0 auto 30px;
+  background-color: #ffad3b;
+  position: relative; }
+  .btn-bingo:hover {
+    background-color: #56c0e0; }
+  .btn-bingo::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icon-voice.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    margin: auto; }
+  .btn-bingo::after {
+    content: "";
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    top: -1px;
+    bottom: 0;
+    margin: auto;
+    transform: rotate(45deg);
+    border-top: 4px solid #333;
+    border-right: 4px solid #333;
+    position: absolute;
+    border-radius: 10%; }
+
+/* 吹き出し */
+.post {
+  display: grid;
+  gap: 10px; }
+  .post .post__img img {
+    width: 100%; }
+  .post .post__text .post__box {
+    background-color: #fff;
+    border-radius: 15px;
+    line-height: 1.4em; }
+  .post .post__text ul li {
+    text-align: left;
+    position: relative;
+    margin: 0 0 2px; }
+    .post .post__text ul li::before {
+      content: "";
+      background-color: #fee631;
+      position: absolute;
+      border-radius: 100%; }
+  .post .post__text li {
+    text-align: center; }
+
+@media screen and (min-width: 768px) {
+  .post {
+    margin: 45px auto -30px;
+    grid-template-columns: minmax(145px, 145px) 2fr; }
+    .post .post__text .post__box {
+      padding: 20px; } }
+@media screen and (max-width: 767px) {
+  .post {
+    margin: 35px auto -30px;
+    grid-template-columns: minmax(100px, 100px) 2fr; }
+    .post .post__img img {
+      margin-top: 8px; }
+    .post .post__text .post__box {
+      margin-bottom: 60px;
+      font-size: 0.9em;
+      line-height: 1.5em;
+      padding: 15px; } }
+/* ====== メンバー ====== */
+.member__box {
+  display: grid;
+  gap: 0px; }
+
+.member__item ul {
+  display: grid;
+  gap: 10px; }
+  .member__item ul li {
+    position: relative;
+    cursor: pointer;
+    user-select: none; }
+    .member__item ul li:before {
+      content: "";
+      position: absolute;
+      display: block;
+      box-sizing: content-box;
+      width: 0;
+      height: 0;
+      right: 0;
+      top: 0;
+      border-width: 0.6rem;
+      border-style: solid;
+      border-top-color: #FFF;
+      border-right-color: #FFF;
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+      border-left-color: rgba(255, 255, 255, 0.5);
+      transition: border-width cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s; }
+    .member__item ul li:hover:before {
+      /* カードのめくれ */
+      transition: border-width cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s; }
+
+/* メンバーの名前 */
+.member__item {
+  position: relative;
+  flex: 0 1 81.2rem;
+  background-color: #fff;
+  box-shadow: -0.6rem 0.6rem 1rem rgba(0, 0, 0, 0.05); }
+  .member__item h3 {
+    padding: 8px;
+    text-align: center;
+    background-color: rgba(195, 172, 97, 0.8);
+    font-size: 1.5em;
+    color: #fff;
+    letter-spacing: 2px; }
+  .member__item ul {
+    flex-wrap: nowrap; }
+    .member__item ul li {
+      display: block;
+      text-align: center;
+      font-weight: 800;
+      background-color: #efead5;
+      width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .member {
+    height: 560px;
+    overflow-y: auto; }
+
+  .member__box {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+
+  .member__item {
+    margin: 15px 10px; }
+    .member__item ul {
+      grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+      padding: 15px; }
+      .member__item ul li {
+        line-height: 2.5em;
+        font-size: 2.0em; }
+        .member__item ul li:before {
+          border-width: 0.6rem; }
+        .member__item ul li:hover:before {
+          /* カードのめくれ */
+          border-width: 1.0rem; } }
+@media screen and (max-width: 767px) {
+  .member__item {
+    margin: 10px 0px; }
+    .member__item ul {
+      grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+      padding: 10px; }
+      .member__item ul li {
+        line-height: 2.0em;
+        font-size: 1.4em; }
+        .member__item ul li:before {
+          border-width: 0.4rem; }
+        .member__item ul li:hover:before {
+          /* カードのめくれ */
+          border-width: 0.6rem; } }
+/* 順位リボン */
+.member__item.is-10th:before, .member__item.is-9th:before, .member__item.is-8th:before, .member__item.is-7th:before, .member__item.is-6th:before, .member__item.is-5th:before, .member__item.is-4th:before, .member__item.is-3rd:before, .member__item.is-2nd:before, .member__item.is-1st:before {
+  position: absolute;
+  background: no-repeat 0 url("../img/ribon.png");
+  background-size: contain;
+  font-weight: 900;
+  font-size: 1.4em;
+  top: -12px;
+  left: 10px;
+  text-align: center;
+  z-index: 4;
+  padding: 10px 18px 24px 15px; }
+
+.member__item.is-1st:before {
+  content: "1"; }
+
+.member__item.is-2nd:before {
+  content: "2"; }
+
+.member__item.is-3rd:before {
+  content: "3"; }
+
+.member__item.is-4th:before {
+  content: "4"; }
+
+.member__item.is-5th:before {
+  content: "5"; }
+
+.member__item.is-6th:before {
+  content: "6"; }
+
+.member__item.is-7th:before {
+  content: "7"; }
+
+.member__item.is-8th:before {
+  content: "8"; }
+
+.member__item.is-9th:before {
+  content: "9"; }
+
+.member__item.is-10th:before {
+  content: "10"; }
