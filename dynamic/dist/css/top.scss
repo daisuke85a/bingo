@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+/*---------------------------------
+  
+	// TOP画面 //
+
+	・ 説明
+	・ 登録フォーム
+	・ 登録済みメンバー
+
+---------------------------------*/
+
+/* ====== 説明 ====== */
+.instoduce{
+	& .instoduce__img{
+		& img{
+			width: 100%;
+		}
+	}
+	& .instoduce__text{
+		& .instoduce__box{
+			background-color: #fff;
+			border-radius: 15px;
+		}
+		& ul{
+			& li{
+				text-align: left;
+				position: relative;
+				margin: 0 0 2px;
+				&::before{
+					content: "";
+					background-color: #fee631;
+					position: absolute;
+					border-radius: 100%;
+				}
+			}
+		}
+		& li{
+			text-align: center;
+		}	
+	}
+}
+@media screen and (min-width:992px) {
+	.instoduce{
+		margin: 15px auto;
+		display: grid;
+		gap: 10px;
+		grid-template-columns: minmax(145px , 145px) 2fr;
+		& .instoduce__text{
+			& .instoduce__box{
+				padding: 20px;
+			}
+		}
+		& ul{
+			font-size: 0.85em;
+			line-height: 1.6em;
+			margin: 10px 0 0;
+			& li{
+				padding-left: 20px;
+				&::before{
+					width: 12px;
+					height: 12px;
+					top: 5px;
+					left: 1px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width:991px) {
+	.instoduce{
+		margin-bottom: -5px;
+		& .instoduce__img{
+			& img{
+				display: none;
+			}
+		}
+		& .instoduce__text{
+			margin: 0 0 30px;
+			& .instoduce__box{
+				padding: 15px;
+				font-size: 0.9em;
+				line-height: 1.5em;
+			}
+		}
+		& ul{
+			font-size: 0.8em;
+			line-height: 1.4em;
+			margin: 8px 0 0;
+			& li{
+				padding-left: 15px;
+				&::before{
+					width: 10px;
+					height: 10px;
+					top: 5px;
+					left: 1px;
+				}
+			}
+		}
+	}
+}
+
+/* ====== 登録フォーム ====== */
+.form{
+	& p{
+		text-align: center;
+		padding: 0 0 10px;
+		& input{
+			border: 2px solid #ffad3b;
+			padding: 10px;
+			border-radius: 50px;
+			text-align: center;
+		}
+	}
+	& ul {
+		display: grid;
+		gap: 10px;
+		& li{
+			position: relative;
+			border: 2px solid #ffad3b;
+			border-radius: 50px;
+			background: #fff;
+			& span{
+				position: absolute;
+				color: #ffad3b;
+				display: block;
+			}
+			&::before{
+				position: absolute;
+				right: 0.8em;
+				width: 0;
+				height: 0;
+				padding: 0;
+				content: '';
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-top: 6px solid #ffad3b;
+				pointer-events: none;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				display: block;
+			}
+			& select{
+				padding-right: 1em;
+				cursor: pointer;
+				text-indent: 0.01px;
+				text-overflow: ellipsis;
+				border: none;
+				outline: none;
+				text-align: center;
+				background: transparent;
+				background-image: none;
+				box-shadow: none;
+				-webkit-appearance: none;
+				appearance: none;
+				padding: 8px 20px 8px 10px;
+				width: 100%;
+				position: relative;
+				&::-ms-expand {
+					display: none;
+				}
+				& option{
+					position: absolute;
+					width: 50px;
+					text-align: center;
+					margin: auto;
+					display: block;
+				}
+			}
+			&:last-child{
+				border: none;
+				&::before{
+					display: none;
+				}
+				& input{
+					background-color: #ffad3b;
+					font-size: 1.1em;
+					text-align: center;
+					display: block;
+					width: 100%;
+					padding: 8px;
+					color: #333;
+					font-weight: bold;
+					border-radius: 20px;
+					border: 2px solid #333;
+					transition: all 0.3s ease;
+					-webkit-transition: all 0.3s ease;
+					-moz-transition: all 0.3s ease;
+					-o-transition: all 0.3s ease;
+					&:hover{
+						background-color: #FFE631;
+						transition: all 0.3s ease;
+						-webkit-transition: all 0.3s ease;
+						-moz-transition: all 0.3s ease;
+						-o-transition: all 0.3s ease;
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width:992px) {
+	.form{
+		& p{
+			& input{
+				font-size: 1.1em;
+				margin: 0 0 0 10px;
+			}
+		}
+		& ul{
+			margin: 30px 0 0 0;
+			grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
+			& li{
+				& span{
+					top: -28px;
+					text-align: center;
+					width: 100%;
+					font-size: 0.9em;
+				}
+				& select {
+					padding: 8px 20px 8px 10px;
+					font-size: 1.0em;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width:991px) {
+	.form{
+		& p{
+			& input{
+				font-size: 1.0em;
+				margin: 0 0 0 8px;
+			}
+			& span{
+				font-size: 0.9em;
+			}
+		}
+		& ul {
+			margin: 10px 0 0 0;
+			grid-template-columns: repeat(2, minmax(0px, 1fr));
+			& li{
+				& span{
+					left: 10px;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+					height: 28px;
+					font-size: 0.8em;
+				}
+				& select{
+					padding: 8px 20px 8px 50px;
+					font-size: 0.9em;
+					text-align: left;
+				}
+			}
+		}
+	}	
+}
+
+/* ====== 登録済みメンバー ====== */
+.member{
+	background-color: #fff;
+	padding: 15px;
+	& ul{
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		font-weight: 500;
+		& li{
+			background-color: #EFEAD5;
+			text-align: center;
+			padding: 8px;
+		}
+	}
+}

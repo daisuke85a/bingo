@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+@import "reset"; //_reset.scss
+@import "style"; //_style.scss
+
+/*---------------------------------
+  
+	// 共通項目 //
+
+	0. base
+	1. header
+	2. footer
+
+---------------------------------*/
+
+/* ====== 0. base ====== */
+
+body{
+	background-color: #F8F7F0;
+	color: #555;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	font-size: 16px;
+	line-height: 1.8em;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	overflow-x: hidden;
+	&::before, &::after{
+		content: "";
+		background-image: url("../img/side.png"); /* 左右の肉球 */
+		background-repeat: repeat-y;
+		background-size: 50px auto;
+		position: absolute;
+		width: 150px;
+		height: 100%;
+		opacity: 0.8;
+		z-index: -1;
+	}
+	&::before{
+		left: -20px;
+	}
+	&::after{
+		right: -20px;
+		transform: scale(-1, 1);
+		top: -50px;
+	}
+}
+.wrap{
+	overflow: hidden;
+}
+.contents{
+	max-width: 100%;
+	margin: 0 auto;
+}
+@media screen and (min-width:992px) {
+	.contents{
+		width: 1000px; /* コンテンツ幅 */
+	}
+}
+@media screen and (max-width:991px) {
+	.contents{
+		padding: 15px;	
+	}
+}
+
+/* ====== 1. header ====== */
+header{
+	position: relative;
+	padding: 20px 0 10px;
+	&::before, &::after{
+		content: "";
+		background-image: url("../img/flag.png"); /* 左右の旗 */
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: absolute;
+		display: block;
+		top: 0;
+	}
+	&::before{
+		left: 0;
+	}
+	&::after{
+		transform: scale(-1, 1);
+		right: 0;
+	}
+	
+}
+h1 img{
+	width: 600px; /* ロゴの横幅 */
+	max-width: 90%;
+	margin: 0 auto;
+	display: block;
+}
+@media screen and (min-width:768px) {
+	header{
+		&::before, &::after{
+			width: 150px;
+			height: 100px;
+		}
+	}	
+}
+@media screen and (max-width:767px) {
+	header{
+		&::before, &::after{
+			display: hidden;
+		}
+	}	
+}
+
+/* ====== 2. footer ====== */
+.footer{
+	position: relative;
+	& .footer__copy{
+		text-align: center;
+		color: #fff;
+		font-size: 0.9em;
+		font-weight: 100;
+		letter-spacing: 0.1em;
+		background-color: #adcb5f;
+		padding: 10px 0 15px;
+	}
+	& .footer__deco{
+		position: relative;
+		& ul{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-around;
+			align-items: flex-end;
+			& li{
+				flex: 0 1 auto;
+				align-self: flex-end;
+				&:first-child, &:last-child{
+					flex: 0 1 10%;
+				}
+				& span{
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center bottom;
+					display: block;
+					margin: auto;
+					cursor: pointer;
+				}
+			}
+		}
+		/* 草 */
+		&::after{
+			content: "";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 2rem;
+			bottom: -1rem;
+			left: 0;
+			background: repeat-x center top url("../img/footer.png");
+			z-index: 3;
+		}
+	}
+}
+/* アルパカ */
+.footer__alpaca{
+	position: absolute;
+	background: no-repeat center url("../img/cat02.png");
+	transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+	background-size: contain;
+	animation: moveimg 100s infinite;
+	z-index: 4;
+	&:hover{
+		transform: scale(1.05) translate(0, -10%);
+	}
+}
+/* 家 */
+.footer__house01{
+	background-image: url("../img/house03.png");
+	&:hover{
+		animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards;
+	}
+}
+.footer__house02{
+	background-image: url("../img/house01.png");
+	&:hover{
+		animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards;
+	}
+}
+.footer__house03{
+	background-image: url("../img/house05.png");
+	&:hover{
+		animation: dance 0.7s linear 0s infinite alternate none;
+	}
+}
+.footer__house04{
+	background-image: url("../img/house02.png");
+	&:hover{
+		animation: dance 0.7s linear 0s infinite alternate none;
+	}
+}
+.footer__house05{
+	background-image: url("../img/house04.png");
+	&:hover{
+		animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite alternate forwards;
+	}
+}
+.footer__house06{
+	background-image: url("../img/house06.png");
+	&:hover{
+		animation: raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s alternate forwards, rotate 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s alternate forwards, raise 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s reverse forwards;
+	}
+}
+/* 木 */
+.footer__tree01, .footer__tree02{
+	&:hover{
+		animation: growup 1s steps(1) 0s infinite alternate none;
+	}
+}
+.footer__tree01{
+	background-image: url("../img/tree01.png");
+}
+.footer__tree02{
+	background-image: url("../img/tree02.png");
+}
+/* animation */
+@keyframes raise{
+	0% {margin-bottom: 0;}
+	100% {margin-bottom: 3rem;}
+}
+@keyframes rotate{
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+@keyframes dance{
+	0% {transform: skew(0) scale(1);}
+	33% {transform: skew(-5deg) scale(1.1);}
+	50% {transform: skew(0) scale(1.2);}
+	66% {transform: skew(5deg) scale(1.1);}
+	100% {transform: skew(0) scale(1);}
+}
+@keyframes growup{
+	0% {transform: translateY(0px) scale(1);}
+	20% {transform: translateY(-4px) scale(1.1);}
+	40% {transform: translateY(-8px) scale(1.05);}
+	60% {transform: translateY(-12px) scale(1.25);}
+	80% {transform: translateY(-16px) scale(1.2);}
+	100% {transform: translateY(-20px) scale(1.5);}
+}
+@keyframes moveimg{
+    0% { right: -15%; transform: rotate(0deg) scale(1, 1); }
+    10% { right: 0%; transform: rotate(10deg) scale(1, 1); }  
+    20% { right: 25%; transform: rotate(0deg) scale(1, 1); }
+    30% { right: 50%; transform: rotate(-10deg) scale(1, 1); }   
+    40% { right: 75%; transform: rotate(0deg) scale(1, 1); }    
+    50% { right: 100%; transform: rotate(10deg) scale(1, 1); }
+    51% { right: 100%; transform: rotate(0deg) scale(-1, 1); }
+    60% { right: 75%; transform: rotate(-10deg) scale(-1, 1); }
+    70% { right: 50%; transform: rotate(0deg) scale(-1, 1); }
+    80% { right: 25%; transform: rotate(10deg) scale(-1, 1); }
+    90% { right: 0%; transform: rotate(0deg) scale(-1, 1); }
+    100% { right: -15%; transform: rotate(-10deg) scale(-1, 1); }
+}
+@media screen and (min-width:992px) {
+	footer{
+		margin: -80px 0 0 0;
+	}
+}
+@media screen and (max-width:991px) {
+	footer{
+		margin: -50px 0 0 0;
+	}
+}
+@media screen and (min-width:768px) {
+	/* 家 */
+	.footer__house01, .footer__house02, .footer__house03, .footer__house04, .footer__house05, .footer__house06{
+		width: 4rem;
+		height: 4rem;
+	}
+	/* 木 */
+	.footer__tree01, .footer__tree02{
+		width: 10rem;
+		height: 10rem;
+	}
+	/* アルパカ */
+	.footer__alpaca{
+		right: 0;
+		bottom: 15px;
+		width: 150px;
+		height: 150px;
+	}
+}
+@media screen and (max-width:767px) {
+	/* 家 */
+	.footer__house01, .footer__house02, .footer__house03, .footer__house04, .footer__house05, .footer__house06{
+		width: 3rem;
+		height: 3rem;
+		transform: translateY(-5px);
+	}
+	/* 木 */
+	.footer__tree01, .footer__tree02{
+		height: 6rem;
+	}
+	/* アルパカ */
+	.footer__alpaca{
+		right: 0;
+		bottom: 15px;
+		width: 100px;
+		height: 100px;
+	}
+}

@@ -1,145 +1,172 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>ゲーム画面です | みんニャでかんたんBINGO</title>
-    <meta name="description">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700,800">
-    <link rel="stylesheet" type="text/css" href="./game/game.78a35d31.css">
-  </head>
-  <body class="body game">
-    <main class="main" id="main">
-      <h1 class="headline"><img src="./game/logo.814d17e3.png" alt="みんニャでかんたんBINGO"></h1>
-      <section class="history">
-        <button class="buttonPrimary">スロットまわす</button>
-        <div class="history__newone">
-          <p><span>\NEW/</span><span>99</span></p>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ゲーム画面｜みんニャでかんたんBINGO</title>
+<meta name="description" content="みんニャでかんたんBINGOで遊んでにゃ〜">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- favicon -->
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+<!-- css -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body id="main">
+<div class="wrap"> 
+  <!-- START / header ========== -->
+  <header>
+    <h1><img src="img/logo.png" alt="みんニャでかんたんBINGO"></h1>
+  </header>
+  <!-- END / header ========== -->
+  <div class="contents"> <!-- START / スロットまわす ========== -->
+    <section class="history"> 
+      <!-- START / ボタン ========== --> 
+      <a class="btn-base btn-blue">スロットまわす</a> 
+      <!-- END / ボタン ========== --> 
+      <!-- START / NEW ========== -->
+      <div class="history__newone">
+        <p><span>0</span></p>
+      </div>
+      <!-- END / NEW ========== -->
+      <ul class="history__list">
+        <li>15</li>
+        <li>18</li>
+        <li>28</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>7</li>
+        <li>30</li>
+        <li>2</li>
+        <li>0</li>
+        <li>4</li>
+        <li>21</li>
+        <li>5</li>
+        <li>6</li>
+        <li>19</li>
+        <li>13</li>
+        <li>11</li>
+        <li>27</li>
+        <li>25</li>
+        <li>17</li>
+        <li>3</li>
+        <li>12</li>
+        <li>20</li>
+        <li>22</li>
+        <li>24</li>
+        <li>23</li>
+        <li>26</li>
+        <li>29</li>
+        <li>1</li>
+        <li>14</li>
+        <li>16</li>
+      </ul>
+    </section>
+    <!-- END / スロットまわす ========== --> 
+    <!-- START / ビンゴさけぶ ========== -->
+    <section class="post">
+      <div class="post__img"> <img src="img/cat03.png" alt="さけびにゃんこ"> </div>
+      <div class="post__text">
+        <div class="post__box">5つの数字がそろったら<strong> ビンゴさけぶ </strong>ボタンを押して<strong> "BINGO" をさけんでください</strong> ニャ </div>
+      </div>
+    </section>
+    <!-- START / ボタン ========== --> 
+    <a class="btn-base btn-bingo">BINGOさけぶ</a> 
+    <!-- END / ボタン ========== --> 
+    <!-- END / ビンゴさけぶ ========== --> 
+    <!-- START / メンバー ========== -->
+    <section class="member">
+      <div class="member__box">
+        <div class="member__item is-2nd">
+          <h3>yamada</h3>
+          <ul>
+            <li>26</li>
+            <li>8</li>
+            <li>3</li>
+            <li>15</li>
+            <li>30</li>
+          </ul>
         </div>
-        <ul class="history__list">
-          <li>0</li>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
-          <li>14</li>
-          <li>15</li>
-          <li>16</li>
-          <li>17</li>
-          <li>18</li>
-          <li>19</li>
-          <li>20</li>
-          <li>21</li>
-          <li>22</li>
-          <li>23</li>
-          <li>24</li>
-          <li>25</li>
-          <li>26</li>
-          <li>27</li>
-          <li>28</li>
-          <li>29</li>
-          <li>30</li>
-        </ul>
-      </section>
-      <section class="post">
-        <p class="post__note">5つの数字がそろったら<b>ビンゴさけぶ</b>ボタンを押して<b>ビンゴをさけんでください</b>ニャ</p>
-        <button class="buttonSecondary">ビンゴさけぶ</button>
-      </section>
-      <section class="member">
         <div class="member__item">
-          <h3>参加者 17</h3>
+          <h3>daisuke</h3>
+          <ul>
+            <li>0</li>
+            <li>11</li>
+            <li>20</li>
+            <li>23</li>
+            <li>30</li>
+          </ul>
+        </div>
+        <div class="member__item">
+          <h3>AYA</h3>
+          <ul>
+            <li>8</li>
+            <li>2</li>
+            <li>15</li>
+            <li>7</li>
+            <li>4</li>
+          </ul>
+        </div>
+        <div class="member__item">
+          <h3>あや</h3>
+          <ul>
+            <li>13</li>
+            <li>14</li>
+            <li>4</li>
+            <li>16</li>
+            <li>12</li>
+          </ul>
+        </div>
+        <div class="member__item">
+          <h3>ishi</h3>
           <ul>
             <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
+            <li>2</li>
+            <li>6</li>
+            <li>9</li>
+            <li>10</li>
           </ul>
         </div>
         <div class="member__item is-1st">
-          <h3>参加者 16</h3>
+          <h3>aym</h3>
           <ul>
-            <li>1</li>
-            <li>88</li>
+            <li>0</li>
+            <li>24</li>
             <li>3</li>
-            <li>7</li>
-            <li>5</li>
+            <li>10</li>
+            <li>20</li>
           </ul>
         </div>
-        <div class="member__item is-2nd">
-          <h3>参加者 18</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 19</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 8</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item is-10th">
-          <h3>参加者 1</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-        <div class="member__item">
-          <h3>参加者 44</h3>
-          <ul>
-            <li>1</li>
-            <li>88</li>
-            <li>3</li>
-            <li>7</li>
-            <li>5</li>
-          </ul>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <button class="buttonPrimary">やめる</button>
-      <div class="footer__deco">
-        <button class="footer__tree01"></button>
-        <button class="footer__house01"></button>
-        <button class="footer__house02"></button>
-        <button class="footer__house03"></button>
-        <button class="footer__house04"></button>
-        <button class="footer__house05"></button>
-        <button class="footer__house06"></button>
-        <button class="footer__tree02"></button><a class="footer__alpaca" href="#main"></a>
       </div>
-      <p class="footer__copy">&copy; team BINGO !!</p>
-    </footer>
-  </body>
+    </section>
+    <!-- END / メンバー ========== --> 
+    <!-- START / ボタン ========== --> 
+    <a class="btn-base btn-blue">やめる</a> 
+    <!-- END / ボタン ========== --> 
+  </div>
+  <!-- START / footer ========== -->
+  <footer class="footer">
+    <div class="footer__deco">
+      <ul>
+        <li><span class="footer__tree01"></span></li>
+        <li><span class="footer__house01"></span></li>
+        <li><span class="footer__house02"></span></li>
+        <li><span class="footer__house03"></span></li>
+        <li><span class="footer__house04"></span></li>
+        <li><span class="footer__house05"></span></li>
+        <li><span class="footer__house06"></span></li>
+        <li><span class="footer__tree02"></span></li>
+      </ul>
+    </div>
+    <a class="footer__alpaca" data-scroll href="#main"></a>
+    <p class="footer__copy">© team BINGO !!</p>
+  </footer>
+  <!-- END / footer ========== --> 
+</div>
+<!-- smooth scroll --> 
+<script src="js/smooth-scroll.min.js"></script> 
+<script>var scroll = new SmoothScroll('a[href*="#"]');</script>
+</body>
 </html>
