@@ -163,6 +163,7 @@ button, [type="button"], [type="reset"], [type="submit"] {
   font-weight: 800;
   letter-spacing: 2px;
   text-align: center;
+  text-decoration: none;
   background-color: #56c0e0;
   position: relative;
   cursor: pointer;
