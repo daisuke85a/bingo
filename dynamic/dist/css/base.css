@@ -345,7 +345,7 @@ h1 img {
 /* ====== 2. footer ====== */
 .footer {
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 
 .footer .footer__copy {
@@ -587,13 +587,13 @@ h1 img {
 
 @media screen and (min-width: 992px) {
   footer {
-    margin: -80px 0 0 0;
+    margin: -50px 0 0 0;
   }
 }
 
 @media screen and (max-width: 991px) {
   footer {
-    margin: -50px 0 0 0;
+    margin: -30px 0 0 0;
   }
 }
 
