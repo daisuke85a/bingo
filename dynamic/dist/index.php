@@ -23,65 +23,20 @@ $bingoApp = new \MyApp\Bingo();
 
 $bingoApp->getMaxRank();
 
-if (isset($_COOKIE['name'])) {
-    echo "<p>私の名前は" . $_COOKIE['name'] . "です</p>";
-} else {
-    echo "<p>ビンゴカードが未登録です</p>";
-}
-
-//音声入力された。
-if (isset($_GET['bingo'])) {
-    echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
-
-    //ビンゴと言われたかチェックする
-    if ($_GET['bingo'] === "bingo") {
-        //ビンゴしたかチェックする
-        $bingoApp->checkBingo($_COOKIE['name']);
-    }
-}
-
-//リセットボタンが押された
-if (isset($_GET['reset'])) {
-    echo "番号reset!!!";
-    $bingoApp->resetNum();
-}
-
-if (isset($_GET['resetuser'])) {
-    echo "ユーザーreset!!!";
-    $bingoApp->resetUser();
-
-}
-
 //ユーザー登録ボタンが押された
-if (isset($_GET['user'])) {
+if (isset($_POST['user'])) {
     echo "add user";
-    $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
+    $bingoApp->addUser($_POST['user'], $_POST['num1'], $_POST['num2'], $_POST['num3'], $_POST['num4'], $_POST['num5']);
+}
+
+if (isset($_COOKIE['name'])) {
+  echo "<p>私の名前は" . $_COOKIE['name'] . "です</p>";
+} else {
+  echo "<p>ビンゴカードが未登録です</p>";
 }
 
 $numbers = $bingoApp->getAll();
 $users = $bingoApp->getAllUsers();
-//var_dump($users);
-//var_dump($numbers);
-
-if (isset($_GET['comment'])) {
-    if (count($numbers) !== 30) {
-        do {
-            $bingo = rand(0, 30);
-            $first = true;
-            foreach ($numbers as $number) {
-                //var_dump($number);
-                if (intval($number["number"]) === $bingo) {
-                    $first = false; //既出
-                    break;
-                }
-            }
-        } while ($first === false); //既出の限り続く
-
-        $bingoApp->insertNum($bingo);
-    } else {
-        echo "番号が全て出たのでビンゴを回せません！";
-    }
-}
 
 ?>
 <div class="wrap"> 
@@ -105,7 +60,7 @@ if (isset($_GET['comment'])) {
     <!-- END / 説明 ========== --> 
     <!-- START / 登録フォーム ========== -->
     <section class="form">
-      <form action="index.php" method="get">
+      <form action="index.php" method="post">
         <p><span>お名前</span>
           <input type="text" name="user" placeholder="お名前を入れてニャ" required>
         </p>

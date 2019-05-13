@@ -37,30 +37,12 @@ if (isset($_GET['bingo'])) {
     }
 }
 
-//リセットボタンが押された
-if (isset($_GET['reset'])) {
-    echo "番号reset!!!";
-    $bingoApp->resetNum();
-}
-
-if (isset($_GET['resetuser'])) {
-    echo "ユーザーreset!!!";
-    $bingoApp->resetUser();
-
-}
-
-//ユーザー登録ボタンが押された
-if (isset($_GET['user'])) {
-    echo "add user";
-    $bingoApp->addUser($_GET['user'], $_GET['num1'], $_GET['num2'], $_GET['num3'], $_GET['num4'], $_GET['num5']);
-}
-
 $numbers = $bingoApp->getAll();
 $users = $bingoApp->getAllUsers();
 //var_dump($users);
 //var_dump($numbers);
 
-if (isset($_GET['comment'])) {
+if (isset($_POST['slot'])) {
     if (count($numbers) !== 31) {
         do {
             $bingo = rand(0, 30);
@@ -90,9 +72,9 @@ if (isset($_GET['comment'])) {
     <section class="history"> 
       <!-- START / ボタン ========== --> 
       <!-- <a class="btn-base btn-blue">スロットまわす</a>  -->
-      <form action="game.php" method="get">
+      <form action="game.php" method="post">
         <p>
-          <input type=“text” name =comment style="display:none" value="start">
+          <input type=“text” name =slot style="display:none" value="start">
           <!-- TODO:beforeとafterのマークがつかない。 -->
           <input type="submit" class="btn-base btn-blue" value="スロットまわす">
         </p>
