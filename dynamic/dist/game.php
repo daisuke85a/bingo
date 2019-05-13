@@ -27,11 +27,11 @@ $bingoApp = new \MyApp\Bingo();
 $bingoApp->getMaxRank();
 
 //音声入力された。
-if (isset($_GET['bingo'])) {
-    echo "<p>音声入力された文字は「" . $_GET['bingo'] . "」です</p>";
+if (isset($_POST['bingo'])) {
+    echo "<p>音声入力された文字は「" . $_POST['bingo'] . "」です</p>";
 
     //ビンゴと言われたかチェックする
-    if ($_GET['bingo'] === "bingo") {
+    if ($_POST['bingo'] === "bingo") {
         //ビンゴしたかチェックする
         $bingoApp->checkBingo($_COOKIE['name']);
     }
@@ -218,7 +218,7 @@ function execPost(action, data) {
  // フォームの生成
  var form = document.createElement("form");
  form.setAttribute("action", action);
- form.setAttribute("method", "get");
+ form.setAttribute("method", "post");
  form.style.display = "none";
  document.body.appendChild(form);
  // パラメタの設定
