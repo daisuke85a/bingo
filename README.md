@@ -1,5 +1,5 @@
 # みんニャでかんたんBINGO
-https://minnya.fun/
+URL　https://minnya.fun/
 
 ## 概要
 音声認識型のオンラインビンゴゲーム<br>
